@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Deployment.co — Sales Playbook and Scale Thesis</title>
+  <style>
+    :root{--ink:#10201b;--muted:#61706a;--paper:#f7f8f4;--card:#fff;--line:#dce3dd;--green:#1c6b4c;--lime:#dfff8c;--amber:#fff1c7;--red:#ffd9d2}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:1120px;margin:auto;padding:48px 24px 96px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--green)}
+    h1{font-size:clamp(40px,6vw,76px);line-height:.98;letter-spacing:-.05em;max-width:900px;margin:14px 0 24px}h2{font-size:32px;line-height:1.1;letter-spacing:-.03em;margin:0 0 16px}h3{font-size:20px;margin:0 0 8px}
+    p{margin:0 0 14px}.lead{font-size:20px;max-width:820px;color:#31443d}.meta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 56px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px}
+    section{margin-top:64px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 4;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 28px rgba(16,32,27,.04)}
+    .wide{grid-column:span 8}.full{grid-column:1/-1}.half{grid-column:span 6}.num{font-size:42px;line-height:1;font-weight:800;letter-spacing:-.04em}.muted,small{color:var(--muted)}.callout{background:var(--ink);color:white;border-radius:22px;padding:28px}.callout .muted{color:#c9d6d0}
+    table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}th,td{text-align:left;vertical-align:top;padding:14px;border-bottom:1px solid var(--line)}th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}tr:last-child td{border-bottom:0}
+    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.flow.six{grid-template-columns:repeat(6,1fr)}.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.step b{display:block;margin-bottom:8px}.tag{display:inline-block;background:var(--lime);border-radius:7px;padding:3px 7px;font-size:12px;font-weight:800;margin-bottom:10px}
+    .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.offer{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;min-height:250px;display:flex;flex-direction:column}.offer.featured{background:var(--ink);color:#fff}.offer.featured small{color:#c9d6d0}.offer .price{font-size:30px;line-height:1;font-weight:850;letter-spacing:-.04em;margin:8px 0 12px}.offer ul{font-size:13px;padding-left:18px}.offer small{margin-top:auto}.path{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px}.node{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:13px;font-weight:750}.arrow{color:var(--green);font-weight:900}
+    ul,ol{padding-left:22px;margin:10px 0}li{margin:6px 0}.warning{background:var(--amber);border-color:#ead18b}.risk{background:var(--red);border-color:#f0aaa0}
+    .formmock{background:#0f1815;border-radius:24px;padding:26px;color:#fff}.formmock .panel{background:#fff;color:var(--ink);border-radius:18px;padding:22px;max-width:520px;margin:18px auto}.field{border:1px solid var(--line);border-radius:11px;padding:12px;margin:10px 0;color:#64736d}.button{background:var(--lime);color:var(--ink);font-weight:800;text-align:center;border-radius:11px;padding:13px;margin-top:14px}.quote{font-size:23px;line-height:1.25;letter-spacing:-.02em}
+    .status{font-weight:800;color:var(--green)}a{color:var(--green)}details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:16px}summary{cursor:pointer;font-weight:800}.source-note{font-size:13px;color:var(--muted);margin-top:14px}.compact td{font-size:13px;padding:11px}.kpi{font-size:28px;line-height:1;font-weight:850;letter-spacing:-.03em}
+    .org-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;margin-top:24px}.person-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;text-align:center;box-shadow:0 10px 30px rgba(16,32,27,.05)}.person-card.featured{background:var(--ink);color:#fff;transform:translateY(-8px)}.person-card.featured small{color:#c9d6d0}.person-icon{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:var(--ink)}.person-icon svg{width:38px;height:38px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.role{font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:12px}.person-card.featured .role{color:var(--lime)}
+    .investor-hero{background:linear-gradient(135deg,#10201b 0%,#173f31 100%);color:#fff;border-radius:28px;padding:34px;overflow:hidden}.investor-hero h2{font-size:clamp(34px,5vw,56px);max-width:920px}.investor-hero .muted{color:#c9d6d0}.evidence-badge{display:inline-block;border:1px solid rgba(223,255,140,.5);background:rgba(223,255,140,.12);color:var(--lime);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}.investor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.investor-point{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:17px}.investor-point b{display:block;color:var(--lime);margin-bottom:7px}.status-legend{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}.status-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}.status-chip.reported{background:var(--amber)}.status-chip.target{background:#e6efff}.status-chip.proposed{background:#eee7ff}.metric-needed{display:inline-block;background:var(--amber);border:1px solid #ead18b;color:var(--ink);border-radius:7px;padding:3px 7px;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}.pitch-script{background:#fff;border-left:5px solid var(--green);border-radius:0 18px 18px 0;padding:24px;font-size:21px;line-height:1.38}.ask-box{background:var(--lime);border-radius:20px;padding:24px}.ask-box .num{font-size:34px}.proof-table td:first-child{font-weight:800}.proof-table td:nth-child(2){color:var(--muted)}footer{margin-top:72px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    @media(max-width:980px){.ladder{grid-template-columns:repeat(2,1fr)}.flow.six{grid-template-columns:repeat(3,1fr)}.investor-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:820px){.card,.wide,.half{grid-column:1/-1}.flow,.flow.six,.ladder,.org-grid,.investor-grid{grid-template-columns:1fr}.person-card.featured{transform:none}main{padding:32px 16px 72px}table{font-size:13px;display:block;overflow-x:auto}.investor-hero{padding:24px}}
+    @media print{body{background:#fff}.card{box-shadow:none}main{max-width:none;padding:24px}section{break-inside:avoid}}
+  </style>
+</head>
+<body><main>
+  <div class="eyebrow">Deployment.co • Commercial &amp; investor playbook</div>
+  <h1>From demand to scale: products, sales, and capacity.</h1>
+  <p class="lead">A thesis that turns audience into diagnosis, diagnosis into recurring contracts, and capital into delivery capacity — without confusing ambition with evidence.</p>
+  <div class="meta"><span class="pill">Investor case</span><span class="pill">Acquisition</span><span class="pill">Flagship event</span><span class="pill">Lab</span><span class="pill">Diagnosis</span><span class="pill">Implementation</span><span class="pill">Recurring revenue</span></div>
+
+  <section>
+    <div class="eyebrow">00 • Proposed organizational structure</div><h2>Three accountable owners to turn demand into repeatable delivery.</h2>
+    <div class="org-grid">
+      <div class="person-card">
+        <div class="person-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="12"></circle><path d="M12 56c2-13 10-20 20-20s18 7 20 20"></path></svg></div>
+        <h3>Hans</h3><p class="role">Product &amp; delivery</p><small>Proposed responsibility: turn Jarbas, workflows, and implementation into a measurable, trainable delivery unit.</small>
+      </div>
+      <div class="person-card featured">
+        <div class="person-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="12"></circle><path d="M12 56c2-13 10-20 20-20s18 7 20 20"></path></svg></div>
+        <h3>Head of Sales</h3><p class="role">Revenue &amp; pipeline</p><small>Proposed responsibility: qualify demand, protect fit, manage the forecast, and avoid selling beyond delivery capacity.</small>
+      </div>
+      <div class="person-card">
+        <div class="person-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="12"></circle><path d="M12 56c2-13 10-20 20-20s18 7 20 20"></path></svg></div>
+        <h3>Iago</h3><p class="role">Strategy &amp; client</p><small>Proposed responsibility: value narrative, executive diagnosis, relationships, and expansion of the right accounts.</small>
+      </div>
+    </div>
+    <p class="source-note"><b>Before the meeting:</b> confirm title, relationship, commitment, authority, and metrics for each function. The structure above represents proposed responsibilities; it does not establish corporate or executive roles.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Revenue path • target model</div><h2>23 recurring sales create US$101k in modeled MRR.</h2>
+    <p class="lead">The goal becomes operational when the team can see the exact mix of contracts, the required funnel volume, and the number of sales expected from each launch cycle.</p>
+    <div class="grid" style="margin-top:22px">
+      <div class="card"><div class="num">10</div><h3>Guided Group accounts</h3><p>10 × US$3k = <b>US$30k MRR</b></p></div>
+      <div class="card"><div class="num">10</div><h3>Managed AI Ops accounts</h3><p>10 × US$5k = <b>US$50k MRR</b></p></div>
+      <div class="card"><div class="num">3</div><h3>Strategic Partner accounts</h3><p>3 × US$7k = <b>US$21k MRR</b></p></div>
+    </div>
+    <div class="callout" style="margin-top:16px"><div class="eyebrow" style="color:var(--lime)">Target equation</div><h2>23 active accounts = US$101k MRR = US$1.212M recurring annual run rate.</h2><p class="muted">Modeled blended value: approximately US$4.4k in MRR per account. One-time Lab revenue and Enterprise projects are not included.</p></div>
+    <div class="path"><span class="node">4,000 registrations</span><span class="arrow">→</span><span class="node">1,600 live attendees</span><span class="arrow">→</span><span class="node">192 Lab buyers</span><span class="arrow">→</span><span class="node">77 applications</span><span class="arrow">→</span><span class="node">23 sales</span><span class="arrow">→</span><span class="node">US$101k MRR</span></div>
+    <p class="source-note"><b>Status: target model, not historical performance.</b> The funnel uses 40% live attendance, 12% live-to-Lab conversion, 40% Lab-to-application conversion, and 30% fit-call close rate. Replace every assumption with actual CRM data after each cycle.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">Investor case • pre-diligence conversation</div>
+    <div class="investor-hero">
+      <span class="evidence-badge">Management thesis • validate with data</span>
+      <h2>The constraint should not be generating more interest. It should be turning qualified demand into repeatable capacity.</h2>
+      <p class="lead muted">Deployment.co uses Jarbas to identify the highest-value workflow, implements the solution, and supports the operation. Capital only creates scale if it reduces implementation effort, increases throughput, and preserves quality, margin, and retention.</p>
+      <div class="investor-grid">
+        <div class="investor-point"><b>Problem</b><small class="muted">Fragmented processes leave customers, tasks, and revenue trapped between people and systems.</small></div>
+        <div class="investor-point"><b>Solution</b><small class="muted">Jarbas diagnoses; Deployment.co prioritizes, implements, measures, and operates the workflow with governance.</small></div>
+        <div class="investor-point"><b>Model</b><small class="muted">Educational entry points, diagnosis, and proposed recurring offers from US$3k to US$12k+ per month.</small></div>
+        <div class="investor-point"><b>Unlock</b><small class="muted">Productize delivery, build trainable pods, and hire against the proven constraint.</small></div>
+      </div>
+    </div>
+    <div class="status-legend"><span class="status-chip">Verified</span><span class="status-chip reported">Reported by management</span><span class="status-chip target">Model or target</span><span class="status-chip proposed">Proposed</span></div>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card wide"><h3>Investment thesis</h3><p class="quote">If paid or contracted demand exceeds measured capacity, and each additional pod delivers positive contribution, capital can convert backlog into MRR without degrading the customer experience.</p><p><span class="metric-needed">Evidence gate</span> Contracted demand, capacity per pod, cost to serve, margin, and founder dependency must be documented before the round is sized.</p></div>
+      <div class="card warning"><h3>Strategic crux</h3><p>Can Deployment.co increase recurring revenue without increasing cost, customization, and complexity at the same rate?</p><small>This is what separates a bespoke consultancy from a scalable operating system.</small></div>
+    </div>
+
+    <h3 style="margin-top:28px">60-second pitch</h3>
+    <div class="pitch-script">“Companies want to adopt AI, but their processes remain fragmented across people, messages, and systems. Deployment.co starts with Jarbas, which identifies the highest-impact workflow; we then implement, measure, and operate the solution. The revenue path is explicit: <b>10 Group accounts at US$3k, 10 Managed accounts at US$5k, and 3 Strategic accounts at US$7k</b> create <b>23 active accounts and US$101k in modeled MRR</b>. Four launch cycles are designed to generate the required pipeline. Capital becomes relevant after demand, delivery capacity, margin, and retention prove that the constraint is execution — not market interest.”</div>
+
+    <h3 style="margin-top:28px">The investor needs to leave with these numbers</h3>
+    <table class="compact proof-table">
+      <tr><th>Proof</th><th>Data to add</th><th>What it demonstrates</th></tr>
+      <tr><td>Real traction</td><td>Active paying customers, collected MRR, and implementation revenue</td><td>Observed revenue, not list price</td></tr>
+      <tr><td>Excess demand</td><td>Signed backlog, waitlist, and dated qualified opportunities</td><td>That revenue is constrained, not merely interest</td></tr>
+      <tr><td>Capacity gap</td><td>Monthly qualified demand − monthly implementation capacity</td><td>The constraint capital must remove</td></tr>
+      <tr><td>Unit economics</td><td>Hours, cost to serve, gross margin, CAC, and payback</td><td>That growth creates contribution, not just more work</td></tr>
+      <tr><td>Retention</td><td>Renewal, churn, expansion, and cancellation reasons</td><td>That value continues after implementation</td></tr>
+      <tr><td>Product evidence</td><td>Time to value, hours saved, errors reduced, or revenue recovered</td><td>A verifiable customer outcome</td></tr>
+      <tr><td>Repeatability</td><td>Implementation time, reused components, and capacity per pod</td><td>That delivery can scale without relying on heroes</td></tr>
+    </table>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card wide"><h3>What the capital buys</h3><ol><li>instrumentation for capacity, quality, and outcomes;</li><li>productization of Jarbas and reusable components;</li><li>delivery pods with a playbook, training, and QA;</li><li>security, governance, and telemetry;</li><li>selective distribution only after proving capacity and retention.</li></ol></div>
+      <div class="ask-box card"><span class="tag">CAPITAL PLAN</span><div class="num">Capacity before capital</div><p>The round should fund measurable delivery capacity, Jarbas productization, and governance against a defined milestone.</p><small>Final amount: 12–18 months of required cash + buffer − projected cash generation.</small></div>
+    </div>
+
+    <h3 style="margin-top:28px">Defensible advantage under construction</h3>
+    <div class="grid">
+      <div class="card"><h3>Learning loop</h3><p>Diagnosis → baseline → workflow → implementation effort → outcome → retention and expansion.</p><small>Each cycle should improve the next decision.</small></div>
+      <div class="card"><h3>Reusable components</h3><p>Workflows, integrations, tests, guardrails, and playbooks reduce time and rework.</p><small>Measure reuse rate and cycle-time reduction.</small></div>
+      <div class="card"><h3>Benchmarks and governance</h3><p>Authorized data, comparable metrics, and continuous evaluation can become harder to copy.</p><small>Jarbas alone, the funnel, and pricing are not a moat.</small></div>
+    </div>
+
+    <details>
+      <summary>Three-round competitive stress test</summary>
+      <table class="compact" style="margin-top:14px">
+        <tr><th>Round</th><th>Market response</th><th>Deployment.co adaptation</th><th>What must compound</th></tr>
+        <tr><td>1</td><td>Manual processes, a cheaper agency, or an internal team</td><td>Narrower ICP and workflows, with verifiable baselines and QA</td><td>Cases, templates, and economics per workflow</td></tr>
+        <tr><td>2</td><td>Platforms embed agents and integrations</td><td>Operational depth, governance, and time to value</td><td>Components, evaluation, and authorized benchmarks</td></tr>
+        <tr><td>3</td><td>Platforms also embed diagnosis</td><td>Measure outcomes, specialize by vertical, and pivot if no proprietary learning emerges</td><td>Comparable data and a method that improves with every customer</td></tr>
+      </table>
+    </details>
+
+    <details>
+      <summary>Four difficult investor questions</summary>
+      <table class="compact" style="margin-top:14px">
+        <tr><th>Question</th><th>The answer that must be proven</th></tr>
+        <tr><td>“Is this software or a service?”</td><td>Show what is product, what is human methodology, and how marginal effort falls with each implementation.</td></tr>
+        <tr><td>“Why can’t a platform copy this?”</td><td>Show specialization, governance, telemetry, a reusable library, and accumulated benchmarks.</td></tr>
+        <tr><td>“Why raise capital if customers already fill the calendar?”</td><td>Compare customer financing with equity and prove which milestone requires capital before generating cash.</td></tr>
+        <tr><td>“What breaks first when you double?”</td><td>Identify capacity per pod, founder dependency, QA, security, support, and the plan for each constraint.</td></tr>
+      </table>
+    </details>
+
+    <h3 style="margin-top:28px">Replace adjectives with evidence</h3>
+    <table class="compact">
+      <tr><th>Avoid</th><th>Bring to the investor room</th></tr>
+      <tr><td>“We are full of customers.”</td><td>State the exact number of active paying customers, signed backlog, and monthly implementation capacity.</td></tr>
+      <tr><td>“We cannot keep up with demand.”</td><td>State the 90-day count of qualified opportunities delayed or declined because of capacity.</td></tr>
+      <tr><td>“The product is incredible.”</td><td>Show the baseline, measured outcome, timeframe, retention, and expansion for a documented customer case.</td></tr>
+      <tr><td>“The market is enormous.”</td><td>“This is the initial ICP, this is the urgent problem, and these are the observed pipeline, win rate, and ticket.”</td></tr>
+    </table>
+    <p class="source-note"><b>Correct status:</b> material for an investor conversation. Promote it to an “investable thesis” only after reconciling contracts, payments, CRM, backlog, and delivery records.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">01 • Product ladder</div><h2>Customers can start small and move up as perceived value grows.</h2>
+    <div class="ladder">
+      <div class="offer"><span class="tag">ACQUISITION</span><h3>CEO Skill</h3><div class="price">Free</div><ul><li>guided self-diagnosis</li><li>bottleneck map</li><li>90-day priority</li></ul><small>Generates an identified lead and a first result.</small></div>
+      <div class="offer"><span class="tag">AUDIENCE</span><h3>AI Operations Summit</h3><div class="price">Free</div><ul><li>online flagship event</li><li>thesis, cases and demonstration</li><li>invitation to the Lab</li></ul><small>Expands the audience and builds problem awareness.</small></div>
+      <div class="offer"><span class="tag">ENTRY</span><h3>AI Implementation Lab</h3><div class="price">US$ 99</div><ul><li>3–4 live hours</li><li>a real workflow mapped</li><li>Jarbas Opportunity Score</li></ul><small>Produces a 90-day plan and qualifies the opportunity.</small></div>
+      <div class="offer"><span class="tag">MID-TIER</span><h3>Guided Group</h3><div class="price">US$ 3k<small>/month</small></div><ul><li>group implementation</li><li>office hours</li><li>prioritized backlog</li></ul><small>For companies with a team ready to execute.</small></div>
+      <div class="offer featured"><span class="tag">CORE OFFER</span><h3>Managed AI Ops</h3><div class="price">US$ 5k<small>/month</small></div><ul><li>implementation and operations</li><li>monitoring and iteration</li><li>governance and reporting</li></ul><small>Deployment.co works alongside the operation.</small></div>
+      <div class="offer"><span class="tag">PREMIUM</span><h3>Strategic Partner</h3><div class="price">US$ 7k<small>/month</small></div><ul><li>weekly one-on-one session</li><li>priority support</li><li>executive review</li></ul><small>High-touch support with limited availability.</small></div>
+      <div class="offer"><span class="tag">ENTERPRISE</span><h3>Transformation</h3><div class="price">US$ 12k+<small>/month</small></div><ul><li>multiple departments</li><li>complex integrations</li><li>dedicated SLA and governance</li></ul><small>Scope tailored to company complexity.</small></div>
+    </div>
+    <div class="path"><span class="node">CEO Skill</span><span class="arrow">→</span><span class="node">Free Summit</span><span class="arrow">→</span><span class="node">US$99 Lab</span><span class="arrow">→</span><span class="node">US$3k</span><span class="arrow">→</span><span class="node">US$5k</span><span class="arrow">→</span><span class="node">US$7k</span><span class="arrow">→</span><span class="node">US$12k+</span></div>
+    <p class="source-note"><b>Status: model/target.</b> These are proposed list prices and sales architecture; they do not represent realized contract values, active customers or current revenue.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">02 • Sales thesis</div><h2>Do not sell five agents. Sell an operation that works better.</h2>
+    <div class="grid">
+      <div class="card"><h3>What the customer buys</h3><p>Fewer missed tasks, faster responses, visible processes, clear owners and context-aware decisions.</p></div>
+      <div class="card"><h3>How Deployment.co delivers</h3><p>Jarbas identifies the bottleneck. Deployment.co designs the workflow, connects systems, implements the necessary agents and tracks performance.</p></div>
+      <div class="card"><h3>How value becomes visible</h3><p>Cycle time, backlog, errors, conversion, follow-ups, human interventions and operating hours before and after.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">03 • Founder pain points</div><h2>The sale begins with the burden the founder feels — not the technology.</h2>
+    <div class="grid">
+      <div class="card"><h3>“Everything depends on me.”</h3><p>The company grew, but every exception still comes back to the founder. The founder has become the bottleneck.</p><small>Message: your company must keep operating even when you are not in every conversation.</small></div>
+      <div class="card"><h3>“My team works hard, but the work disappears.”</h3><p>Messages, spreadsheets, CRM and tasks are disconnected. No one sees the entire process, and opportunities are forgotten.</p><small>Message: effort without a system becomes rework, delays and silent losses.</small></div>
+      <div class="card"><h3>“I do not know where I am losing money.”</h3><p>Customer response is slow, follow-up fails and data arrives too late to correct the month.</p><small>Message: the invisible problem keeps charging you every day.</small></div>
+      <div class="card"><h3>“I bought tools, but nothing changed.”</h3><p>The company accumulated software without redesigning the work, ownership or exceptions.</p><small>Message: Deployment.co connects technology to the real operating process.</small></div>
+      <div class="card"><h3>“I am afraid of falling behind.”</h3><p>The founder sees competitors talking about AI but does not know where to start without creating risk, cost and distraction.</p><small>Message: starting with the right workflow reduces anxiety and produces evidence.</small></div>
+      <div class="card"><h3>“I cannot lose control.”</h3><p>Automating decisions without clear guardrails threatens customers, cash and reputation.</p><small>Message: consequential actions begin with human approval, traceability and defined accountability.</small></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">04 • Acquisition strategy</div><h2>The skill builds the owned audience; the flagship event mobilizes it; the Lab converts it.</h2>
+    <div class="flow six">
+      <div class="step"><span class="tag">DISCOVERY</span><b>Content + partners</b><small>Teardowns, cost of inaction, cases, guests and Jarbas demonstrations.</small></div>
+      <div class="step"><span class="tag">CAPTURE</span><b>CEO Skill</b><small>Free download in exchange for professional data and contact consent.</small></div>
+      <div class="step"><span class="tag">MOBILIZATION</span><b>Free Summit</b><small>A high-reach event to teach the thesis, show evidence and segment the audience.</small></div>
+      <div class="step"><span class="tag">ACTIVATION</span><b>US$99 Lab</b><small>Participants work on a real process and produce a 90-day plan.</small></div>
+      <div class="step"><span class="tag">QUALIFICATION</span><b>Jarbas + CRM</b><small>Impact, urgency, authority, feasibility and engagement determine priority.</small></div>
+      <div class="step"><span class="tag">CONVERSION</span><b>Right-sized solution</b><small>Group, managed implementation, strategic partnership or enterprise transformation.</small></div>
+    </div>
+    <p class="source-note"><b>Scale sequence:</b> owned content and partners → two organic cohorts → retargeting → paid media only after measuring registration, attendance, Lab purchases and closed deals.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">05 • Lead magnet</div><h2>Deployment.co CEO Skill: a diagnosis executives can run themselves.</h2>
+    <div class="grid">
+      <div class="card wide"><h3>Promise</h3><p class="quote">“In 15 minutes, identify where your company loses time, context and opportunities — and which workflow should receive AI first.”</p><h3>What the skill delivers</h3><ul><li>a guided interview covering operations, sales, customer service, onboarding, finance and HR;</li><li>a map of the five most important operating gaps;</li><li>impact, urgency, feasibility and risk scores;</li><li>one 90-day priority and questions to take to the team;</li><li>a contextual invitation to the Summit, the Lab or the Jarbas application.</li></ul></div>
+      <div class="card"><h3>Download and installation</h3><ol><li>complete the form;</li><li>receive the file and guide;</li><li>install it in a compatible environment;</li><li>run “diagnose my company”;</li><li>receive the initial map.</li></ol><small>The download page should include a short video, step-by-step instructions and installation support.</small></div>
+    </div>
+    <div class="formmock">
+      <div class="eyebrow" style="color:var(--lime)">CEO Skill landing page</div>
+      <div class="grid"><div class="half"><p class="quote"><b>Download the CEO Skill and find your highest-leverage AI workflow.</b></p><p class="muted">A guided operating diagnostic for founders and business leaders. Practical, private and designed to produce a next action.</p><ul><li>15-minute guided diagnostic</li><li>5-gap operating map</li><li>90-day priority</li><li>installation guide included</li></ul></div>
+      <div class="half"><div class="panel"><b>Get the Deployment.co CEO Skill</b><div class="field">Name + work email</div><div class="field">Company + role</div><div class="field">Team size</div><div class="field">Biggest operational bottleneck</div><div class="button">Send me the CEO Skill →</div><small>By submitting, you agree to receive the skill and relevant follow-up. Unsubscribe anytime.</small></div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">06 • Forms and data</div><h2>Capture only what helps personalize, qualify and act.</h2>
+    <table>
+      <tr><th>Moment</th><th>Data requested</th><th>Next action</th></tr>
+      <tr><td>CEO Skill</td><td>Name, work email, company, role, team size, main bottleneck and consent</td><td>Deliver the skill, record the source and begin the educational sequence</td></tr>
+      <tr><td>Free Summit</td><td>WhatsApp, role, priority department and main question about operational AI</td><td>Segment the agenda, reminders and Lab invitation</td></tr>
+      <tr><td>US$99 Lab</td><td>Priority process, desired outcome, systems involved and internal owner</td><td>Prepare examples, the pre-Lab assignment and working session</td></tr>
+      <tr><td>Jarbas application</td><td>Industry, revenue band, systems, volume, impact, urgency, decision-maker, budget and timeframe</td><td>Score fit and route to a call or nurture sequence</td></tr>
+    </table>
+    <p><b>Enrichment:</b> organize the submitted data, associate company and domain, record behavior and prioritize relevance. Sales outreach must respect the consent presented in the form.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">07 • Two events, two jobs</div><h2>The Summit sells the opportunity. The Lab produces the decision.</h2>
+    <div class="grid">
+      <div class="card half"><span class="tag">FREE FLAGSHIP EVENT</span><h3>Deployment.co AI Operations Summit</h3><p><b>90–120 minutes, online and scalable.</b> The thesis, three priority pain points, a Jarbas demonstration, cases and an invitation to a practical session.</p><small>Audience deliverable: clarity on where to start. CTA: reserve the US$99 Lab.</small></div>
+      <div class="card half"><span class="tag">SECOND PAID EVENT</span><h3>Deployment.co AI Implementation Lab</h3><p><b>3 hours 45 minutes, limited cohort and guided work.</b> Each company arrives with one process, maps the current state and leaves with a score and a 90-day plan.</p><small>Company deliverable: a decision artifact. CTA: apply for the right-sized solution.</small></div>
+    </div>
+    <h3 style="margin-top:24px">AI Implementation Lab agenda</h3>
+    <table>
+      <tr><th>Block</th><th>Lesson</th><th>Assignment</th><th>Deliverable</th></tr>
+      <tr><td>0–30 min</td><td>Where AI creates operating value</td><td>Select one real process</td><td>Clearly scoped problem</td></tr>
+      <tr><td>30–90 min</td><td>Triggers, tasks, handoffs and exceptions</td><td>Map the current process</td><td>Visible workflow</td></tr>
+      <tr><td>90–150 min</td><td>Jarbas: impact × feasibility × risk</td><td>Score the opportunity</td><td>Opportunity Score</td></tr>
+      <tr><td>150–195 min</td><td>Future-state process design</td><td>Define the baseline metric</td><td>90-day plan</td></tr>
+      <tr><td>195–225 min</td><td>Cases, options and next steps</td><td>Choose whether to execute, apply or hire</td><td>CTA aligned with fit</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <div class="eyebrow">08 • Lead scoring</div><h2>Relevance combines company profile and demonstrated intent.</h2>
+    <table>
+      <tr><th>Dimension</th><th>Weight</th><th>Strong signal</th></tr>
+      <tr><td>Pain + impact</td><td>25</td><td>Recurring loss, delay, error or risk</td></tr>
+      <tr><td>Business fit</td><td>20</td><td>An operation with a team, volume and a repeatable process</td></tr>
+      <tr><td>Urgency</td><td>15</td><td>A real need within 90 days</td></tr>
+      <tr><td>Authority</td><td>15</td><td>Founder, executive or a clear approval path</td></tr>
+      <tr><td>Engagement</td><td>15</td><td>Downloaded, installed, ran, attended the Summit and participated in the Lab</td></tr>
+      <tr><td>Feasibility</td><td>10</td><td>Data, systems and an operating owner are available</td></tr>
+    </table>
+    <p><b>Route:</b> 75–100 → fit call within one business day; 50–74 → Lab and nurture; below 50 → Summit, content, cases and a future opportunity.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">09 • Emotional and rational arguments</div><h2>The founder needs to feel relief — and see control.</h2>
+    <div class="grid">
+      <div class="card"><h3>Freedom</h3><p>“You did not build the company to spend your day chasing tasks and searching for information.”</p></div>
+      <div class="card"><h3>Protection</h3><p>“Every forgotten opportunity and every ownerless process carries a cost, even when it never appears in the report.”</p></div>
+      <div class="card"><h3>Speed</h3><p>“A company that learns to operate with AI now compounds process, data and advantage with every cycle.”</p></div>
+      <div class="card"><h3>Control</h3><p>“Automation does not mean losing control. It means defining rules, approvals, traceability and accountability.”</p></div>
+      <div class="card"><h3>Confidence</h3><p>“We do not start with the tool. We start with the bottleneck worth solving.”</p></div>
+      <div class="card"><h3>Close</h3><p>“Do you want the plan only, guidance for your team to execute, or Deployment.co operating the system with you?”</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">10 • 21-day seed launch</div><h2>One major audience moment; a second implementation moment.</h2>
+    <table>
+      <tr><th>Period</th><th>Move</th><th>CTA</th><th>Objective</th></tr>
+      <tr><td>D−21 to D−15</td><td>Problem-led content: founder bottleneck, missed opportunities and software without process. Activate customers, guests and partners.</td><td>Download the CEO Skill</td><td>Build an owned list and retargeting audience</td></tr>
+      <tr><td>D−14</td><td>Open registration for the Deployment.co AI Operations Summit.</td><td>Reserve a free ticket</td><td>Concentrate attention on one date</td></tr>
+      <tr><td>D−13 to D−4</td><td>Three pre-launch pieces: the new opportunity, the Jarbas method and a demonstration or case. Personal invitations to the ICP.</td><td>Register and bring a manager</td><td>Educate, build proof and increase attendance</td></tr>
+      <tr><td>D−3 to D−1</td><td>Countdown, agenda, pre-event assignment and email and WhatsApp reminders.</td><td>Confirm attendance</td><td>Reduce no-shows</td></tr>
+      <tr><td>D0</td><td>Flagship event: thesis, pain points, cases, live Jarbas demonstration and Lab opening.</td><td>Buy the Lab for US$99</td><td>Convert awareness into commitment</td></tr>
+      <tr><td>D+1 to D+6</td><td>Summit recap, clips, answered questions and closing of the Lab's limited seats.</td><td>Join the Lab</td><td>Recover no-shows and undecided leads</td></tr>
+      <tr><td>D+7</td><td>Paid Lab: current-state map, score, future-state process and 90-day plan.</td><td>Jarbas application</td><td>Turn the work into a qualified opportunity</td></tr>
+      <tr><td>D+8 to D+12</td><td>Individual recap, fit calls, right-sized proposal and follow-up with a defined date.</td><td>Choose the engagement</td><td>Close or nurture without losing context</td></tr>
+    </table>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>Distribution</h3><p>Founder content, guests, customers, partners, the owned list, direct ICP invitations and retargeting.</p></div>
+      <div class="card"><h3>Real scarcity</h3><p>The Summit scales. The Lab limits seats because it includes facilitation, process analysis and feedback.</p></div>
+      <div class="card"><h3>Cadence</h3><p>One Summit per quarter and one Lab per month; the best clips feed continuous acquisition.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">11 • Pipeline and metrics</div><h2>One next action, one owner and one deadline for every lead.</h2>
+    <p class="quote">Visitor → Skill requested → Skill activated → Summit registered → Summit attended → Lab purchased → Lab attended → Jarbas application → Qualified → Fit call → Proposal → Customer → Expansion</p>
+    <table class="compact">
+      <tr><th>Macro stage</th><th>Stages</th><th>Owner</th><th>Exit rule</th></tr>
+      <tr><td>Acquisition</td><td>Visitor → Skill requested → Skill activated</td><td>Marketing</td><td>Contact identified, source recorded and skill action completed</td></tr>
+      <tr><td>Events</td><td>Summit registered/attended → Lab purchased/attended</td><td>Event operations</td><td>Attendance, assignment and interest recorded in the CRM</td></tr>
+      <tr><td>Sales</td><td>Application → Qualified → Fit call → Proposal</td><td>Sales owner</td><td>Next meeting or decision has a date; no proposal is left without follow-up</td></tr>
+      <tr><td>Delivery</td><td>Customer → Activation → Outcome → Expansion</td><td>Delivery owner</td><td>Baseline metric, first active workflow and executive review scheduled</td></tr>
+    </table>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>Acquisition</h3><p>Visits, skill conversion, source, cost per lead and company profile.</p></div>
+      <div class="card"><h3>Activation</h3><p>Installations, runs, registrations, Summit attendance, Lab purchases and Lab attendance.</p></div>
+      <div class="card"><h3>Revenue</h3><p>Applications, fit calls, proposals, wins, contract value, MRR, cycle and expansion.</p></div>
+    </div>
+    <h3 style="margin-top:24px">Initial hypothesis per launch — not a guarantee</h3>
+    <table class="compact">
+      <tr><th>Stage</th><th>Test target</th><th>Diagnosis if it misses</th></tr>
+      <tr><td>Summit registrations</td><td><span class="kpi">1,000</span></td><td>Audience, partners, promise and distribution</td></tr>
+      <tr><td>Live attendance</td><td>35–45%</td><td>Reminders, timing, pre-event assignment and agenda clarity</td></tr>
+      <tr><td>Lab purchase</td><td>8–15% of attendees</td><td>Artifact value, demonstration, price and urgency</td></tr>
+      <tr><td>Jarbas application</td><td>30–45% of Lab attendees</td><td>Fit, diagnosis quality and transition to the offer</td></tr>
+      <tr><td>Close</td><td>20–35% of fit calls</td><td>Qualification, proof, proposal, risk and follow-up</td></tr>
+    </table>
+    <p class="source-note">The ranges above are operating assumptions for the first two cohorts. Deployment.co should replace them with its own data before increasing media spend.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">12 • Sales volume engine</div><h2>Four launch cycles create the volume required to reach the recurring revenue target.</h2>
+    <p class="lead">Each cycle is designed to produce approximately six new recurring accounts. The fourth cycle completes the exact target mix at 23 active accounts.</p>
+    <h3 style="margin-top:24px">Required funnel volume</h3>
+    <table class="compact">
+      <tr><th>Stage</th><th>Target conversion</th><th>Per cycle</th><th>Four cycles</th><th>Control metric</th></tr>
+      <tr><td>Summit registrations</td><td>Starting volume</td><td><span class="kpi">1,000</span></td><td>4,000</td><td>Qualified registration cost and ICP share</td></tr>
+      <tr><td>Live attendees</td><td>40% of registrations</td><td>400</td><td>1,600</td><td>Attendance rate</td></tr>
+      <tr><td>US$99 Lab buyers</td><td>12% of live attendees</td><td>48</td><td>192</td><td>Live-to-paid conversion</td></tr>
+      <tr><td>Jarbas applications</td><td>40% of Lab buyers</td><td>≈19</td><td>≈77</td><td>Application rate and qualification</td></tr>
+      <tr><td>Recurring sales</td><td>30% of fit calls</td><td>≈6</td><td>≈23</td><td>Win rate, sales cycle and value</td></tr>
+    </table>
+
+    <h3 style="margin-top:24px">Revenue accumulation by cycle</h3>
+    <table class="compact">
+      <tr><th>Cycle</th><th>New account mix</th><th>New sales</th><th>MRR added</th><th>Cumulative MRR</th></tr>
+      <tr><td>Cycle 1</td><td>3 Group + 2 Managed + 1 Strategic</td><td>6</td><td>US$26k</td><td><b>US$26k</b></td></tr>
+      <tr><td>Cycle 2</td><td>3 Group + 3 Managed</td><td>6</td><td>US$24k</td><td><b>US$50k</b></td></tr>
+      <tr><td>Cycle 3</td><td>2 Group + 3 Managed + 1 Strategic</td><td>6</td><td>US$28k</td><td><b>US$78k</b></td></tr>
+      <tr><td>Cycle 4</td><td>2 Group + 2 Managed + 1 Strategic</td><td>5</td><td>US$23k</td><td><b>US$101k</b></td></tr>
+    </table>
+
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>Acquisition requirement</h3><p>Generate 1,000 qualified registrations per cycle before increasing the media budget.</p></div>
+      <div class="card"><h3>Sales requirement</h3><p>Convert approximately 19 applications into six recurring contracts per cycle.</p></div>
+      <div class="card warning"><h3>Capacity requirement</h3><p>Do not activate more accounts than the delivery pods can onboard, support, and retain at the agreed quality level.</p></div>
+    </div>
+    <p class="source-note"><b>Assumptions:</b> this model excludes churn during the build period, one-time Lab revenue, taxes, payment defaults, discounts, and Enterprise projects. Every cycle must update the model with actual attendance, conversion, value, margin, churn, and delivery capacity.</p>
+  </section>
+
+  <section>
+    <div class="eyebrow">13 • Target economics</div><h2>The revenue target is only valid when sales, capacity, margin, and retention move together.</h2>
+    <div class="grid">
+      <div class="card"><div class="num">23</div><h3>active recurring accounts</h3><p>10 Group + 10 Managed + 3 Strategic accounts.</p></div>
+      <div class="card"><div class="num">US$4.4k</div><h3>blended MRR per account</h3><p>US$101k divided by 23 active accounts.</p></div>
+      <div class="card"><div class="num">US$1.212M</div><h3>recurring annual run rate</h3><p>US$101k in modeled MRR multiplied by 12 months.</p></div>
+    </div>
+    <p class="source-note"><b>Commercial rule:</b> the Head of Sales owns pipeline and forecast; Hans owns delivery capacity and quality; Iago owns executive diagnosis and account expansion. A sale enters the forecast only when fit, value, next step, decision-maker, and delivery slot are recorded.</p>
+  </section>
+
+  <section>
+    <div class="callout"><div class="eyebrow" style="color:var(--lime)">Investor readiness gate</div><h2>Turn the demand narrative into an audit of backlog, capacity and unit economics.</h2><p class="muted">Confirm the roles of Hans, Head of Sales and Iago; reconcile customers, contracts, payments and CRM; calculate the capacity gap, margin and capacity per pod; document at least one case; compare equity financing with customer-funded growth. Then size the round — or decide that raising capital is not yet necessary.</p></div>
+  </section>
+
+  <footer>
+    <p><b>Deployment.co • Sales playbook and scale thesis</b></p>
+    <p>Material for a pre-diligence conversation. Prices, targets, structure, acquisition plan and scopes remain proposals until document verification. Funnel assumptions and conversion targets must be replaced with Deployment.co's own CRM, billing, retention, and delivery-capacity data.</p>
+  </footer>
+</main></body></html>
