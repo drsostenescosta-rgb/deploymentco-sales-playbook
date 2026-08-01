@@ -3,14 +3,14 @@ import WhatsAppFunnelBlueprint from "./WhatsAppFunnelBlueprint";
 import "./whatsapp-funnel.css";
 
 export const metadata: Metadata = {
-  title: "Deployment.co — WhatsApp Revenue System",
+  title: "Deployment.co — CEO Skill to Deployment LAB",
   description:
-    "Protótipo visual para aprovação do funil de aquisição, qualificação, tomada humana, agendamento, pagamento e mensuração da Deployment.co.",
+    "Blueprint visual do funil CEO Skill, WhatsApp 1:1, Deployment LAB de US$99 e qualificação humana para serviços de implementação.",
   openGraph: {
-    title: "Deployment.co — WhatsApp Revenue System",
+    title: "Deployment.co — CEO Skill to Deployment LAB",
     description:
-      "Do primeiro clique à receita: o blueprint visual do funil para aprovação.",
-    images: ["/whatsapp-revenue-system.png"],
+      "Da Skill do CEO ao cliente certo: o blueprint visual do funil para aprovação.",
+    images: ["/deployment-implementation-lab-ticket.png"],
   },
 };
 

@@ -43,12 +43,20 @@ test("server-renders the interactive WhatsApp funnel approval blueprint", async 
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /WhatsApp Revenue System/);
-  assert.match(html, /Do primeiro clique à receita/);
+  assert.match(html, /CEO Skill to Deployment LAB/);
+  assert.match(html, /Da Skill do CEO ao cliente certo/);
   assert.match(html, /Nenhuma mensagem enviada/);
-  assert.match(html, /Sostenes assume o fechamento/);
+  assert.match(html, /Head de Vendas ou co-founder/);
+  assert.match(html, /Ir para o checkout de US\$99/);
+  assert.match(html, /deployment-implementation-lab-ticket\.png/);
+  assert.match(html, /09:00–13:00 PDT/);
+  assert.match(html, /13:00–17:00 BRT/);
+  assert.match(html, /4 horas implementando IA na prática, com certificado de participação/i);
+  assert.match(html, /LIMITED CAPACITY/);
+  assert.match(html, /US\$3k.*US\$5k.*US\$7k/s);
   assert.match(html, /Dados 100% sintéticos/);
   assert.match(html, /Seis definições precisam ser fechadas/);
+  assert.doesNotMatch(html, /Sostenes/i);
   assert.doesNotMatch(html, /conversão garantida|ROI garantido/i);
 });
 

@@ -20,215 +20,161 @@ type Stage = {
 
 const stages: Stage[] = [
   {
-    id: "capture",
-    icon: "◎",
-    title: { pt: "Captação", en: "Acquisition" },
-    subtitle: { pt: "Conteúdo, parceiros e iscas", en: "Content, partners and lead magnets" },
+    id: "ceo-skill",
+    icon: "⌁",
+    title: { pt: "Skill do CEO", en: "CEO Skill" },
+    subtitle: { pt: "A isca de aquisição", en: "The acquisition asset" },
     objective: {
-      pt: "Atrair decisores com uma dor operacional específica — sem prometer ROI não comprovado.",
-      en: "Attract decision-makers through a specific operational pain — without unproven ROI claims.",
+      pt: "Atrair líderes com uma ferramenta instalável que ajuda a mapear decisões, gargalos e oportunidades de IA.",
+      en: "Attract leaders with an installable tool that helps map decisions, bottlenecks and AI opportunities.",
     },
-    system: "Content · Partners · Market Audit PDF · CEO Skill",
-    automation: {
-      pt: "Registra origem, campanha e ativo baixado.",
-      en: "Records source, campaign and downloaded asset.",
-    },
-    human: {
-      pt: "Marketing aprova copy, audiência e uso de qualquer prova.",
-      en: "Marketing approves copy, audience and every proof claim.",
-    },
-    metric: { pt: "Visitas qualificadas por origem", en: "Qualified visits by source" },
-    gate: { pt: "Fonte e promessa aprovadas", en: "Source and promise approved" },
+    system: "Micro-site · CEO Skill · Source tracking",
+    automation: { pt: "Registra origem e intenção de download.", en: "Records source and download intent." },
+    human: { pt: "Deployment.co aprova promessa, arquivo e tutorial.", en: "Deployment.co approves the promise, file and tutorial." },
+    metric: { pt: "Visita → formulário iniciado", en: "Visit → form started" },
+    gate: { pt: "Skill testada e promessa específica", en: "Tested skill and specific promise" },
   },
   {
-    id: "landing",
+    id: "short-form",
     icon: "▣",
-    title: { pt: "Micro-site", en: "Micro-site" },
-    subtitle: { pt: "Jornada móvel e premium", en: "Premium mobile journey" },
+    title: { pt: "Formulário curto", en: "Short form" },
+    subtitle: { pt: "Cinco dados essenciais", en: "Five essential fields" },
     objective: {
-      pt: "Explicar problema, mecanismo, limites, prova autorizada e próximo passo em uma narrativa contínua.",
-      en: "Explain the problem, mechanism, boundaries, authorized proof and next step in one continuous narrative.",
+      pt: "Capturar nome, e-mail profissional, empresa, porte e problema atual antes de abrir o WhatsApp.",
+      en: "Capture name, work email, company, size and current problem before opening WhatsApp.",
     },
-    system: "Landing page · Analytics · A/B test",
-    automation: {
-      pt: "Personaliza apenas por campanha e intenção declarada.",
-      en: "Personalizes only by campaign and declared intent.",
-    },
-    human: {
-      pt: "Founder aprova oferta, preço e alegações antes de publicar.",
-      en: "Founder approves offer, price and claims before publishing.",
-    },
-    metric: { pt: "Conversão visita → opt-in", en: "Visit → opt-in conversion" },
-    gate: { pt: "QA mobile + copy factual", en: "Mobile QA + factual copy" },
+    system: "Form · Supabase · Privacy notice",
+    automation: { pt: "Valida e-mail, deduplica e guarda a origem.", en: "Validates email, deduplicates and stores source." },
+    human: { pt: "Time define retenção, finalidade e canal de suporte.", en: "Team defines retention, purpose and support channel." },
+    metric: { pt: "Formulários completos", en: "Completed forms" },
+    gate: { pt: "Aviso curto ao lado do CTA", en: "Short notice beside the CTA" },
   },
   {
-    id: "consent",
-    icon: "✓",
-    title: { pt: "Consentimento", en: "Consent" },
-    subtitle: { pt: "Entrada transparente", en: "Transparent entry" },
-    objective: {
-      pt: "Obter autorização clara para contato no WhatsApp e informar finalidade, uso e saída.",
-      en: "Obtain clear authorization for WhatsApp contact and disclose purpose, use and opt-out.",
-    },
-    system: "Form · Consent log · Privacy notice",
-    automation: {
-      pt: "Valida telefone, deduplica o lead e salva a versão do consentimento.",
-      en: "Validates the phone, deduplicates the lead and stores the consent version.",
-    },
-    human: {
-      pt: "Jurídico/privacidade valida base legal, retenção e texto.",
-      en: "Legal/privacy validates legal basis, retention and wording.",
-    },
-    metric: { pt: "Opt-in válido e revogações", en: "Valid opt-ins and revocations" },
-    gate: { pt: "Consentimento verificável", en: "Verifiable consent" },
-  },
-  {
-    id: "whatsapp",
+    id: "whatsapp-entry",
     icon: "◉",
-    title: { pt: "Agente WhatsApp", en: "WhatsApp Agent" },
-    subtitle: { pt: "Conversa guiada por limites", en: "Boundary-driven conversation" },
+    title: { pt: "Entrada no WhatsApp", en: "WhatsApp entry" },
+    subtitle: { pt: "1:1 primeiro; grupo opcional", en: "1:1 first; group optional" },
     objective: {
-      pt: "Entender o contexto, responder dentro da base aprovada e avançar apenas quando houver sinal suficiente.",
-      en: "Understand context, answer from the approved knowledge base and advance only with enough signal.",
+      pt: "Fazer a pessoa iniciar a conversa privada. O canal de avisos é separado e nunca bloqueia a entrega.",
+      en: "Have the person start the private conversation. The announcement channel is separate and never gates delivery.",
     },
-    system: "Meta Cloud API · Webhooks · Agent policy",
-    automation: {
-      pt: "Classifica intenção, resume a conversa e sugere a próxima ação.",
-      en: "Classifies intent, summarizes the conversation and suggests the next action.",
-    },
-    human: {
-      pt: "Recebe alertas em baixa confiança, objeção sensível ou pedido explícito.",
-      en: "Receives alerts on low confidence, sensitive objections or explicit requests.",
-    },
-    metric: { pt: "Resposta, avanço e intervenção", en: "Response, progression and intervention" },
-    gate: { pt: "Sandbox + templates aprovados", en: "Sandbox + approved templates" },
+    system: "WhatsApp 1:1 · Optional channel · Webhooks",
+    automation: { pt: "Reconhece a entrada e inicia o onboarding.", en: "Recognizes entry and starts onboarding." },
+    human: { pt: "Time assume dúvidas, pedidos e exceções.", en: "Team takes over questions, requests and exceptions." },
+    metric: { pt: "Formulário → conversa iniciada", en: "Form → conversation started" },
+    gate: { pt: "Grupo depende da elegibilidade Meta", en: "Group depends on Meta eligibility" },
   },
   {
-    id: "qualify",
+    id: "skill-delivery",
+    icon: "↓",
+    title: { pt: "Entrega privada", en: "Private delivery" },
+    subtitle: { pt: "Skill + tutorial", en: "Skill + tutorial" },
+    objective: {
+      pt: "Entregar a Skill do CEO no privado, explicar a instalação e responder dúvidas dentro da base aprovada.",
+      en: "Deliver the CEO Skill privately, explain installation and answer questions from the approved knowledge base.",
+    },
+    system: "Meta Cloud API · File delivery · Knowledge base",
+    automation: { pt: "Envia arquivo, instruções e registra a entrega.", en: "Sends file, instructions and records delivery." },
+    human: { pt: "Time revisa baixa confiança ou pedido explícito.", en: "Team reviews low confidence or explicit requests." },
+    metric: { pt: "Skills entregues e dúvidas resolvidas", en: "Skills delivered and questions resolved" },
+    gate: { pt: "Arquivo seguro e instruções testadas", en: "Secure file and tested instructions" },
+  },
+  {
+    id: "lab-invite",
+    icon: "✦",
+    title: { pt: "Convite para o Lab", en: "Lab invitation" },
+    subtitle: { pt: "Oferta humana de US$99", en: "Human US$99 offer" },
+    objective: {
+      pt: "Conectar o perfil informado ao Deployment LAB e oferecer o link sem exigir reunião.",
+      en: "Connect the stated profile to the Deployment LAB and offer the link without requiring a meeting.",
+    },
+    system: "Agent policy · Approved invitation · Event page",
+    automation: { pt: "Personaliza o contexto sem inventar escassez.", en: "Personalizes context without invented scarcity." },
+    human: { pt: "Time aprova mensagem, cadência e capacidade real.", en: "Team approves message, cadence and real capacity." },
+    metric: { pt: "Links solicitados e acessados", en: "Links requested and opened" },
+    gate: { pt: "Capacidade limitada pela facilitação ao vivo", en: "Capacity limited by live facilitation" },
+  },
+  {
+    id: "pre-checkout",
     icon: "◇",
-    title: { pt: "Qualificação", en: "Qualification" },
-    subtitle: { pt: "Company · Signal · Workflow", en: "Company · Signal · Workflow" },
+    title: { pt: "Pré-checkout", en: "Pre-checkout" },
+    subtitle: { pt: "Inscrição + sinais de fit", en: "Registration + fit signals" },
     objective: {
-      pt: "Confirmar problema, impacto, urgência, autoridade e capacidade real de implementação.",
-      en: "Confirm problem, impact, urgency, authority and actual implementation capacity.",
+      pt: "Entender objetivo, dificuldade, perfil e autoridade. Porte e faturamento entram como faixas opcionais para roteamento futuro.",
+      en: "Understand goal, difficulty, profile and authority. Company size and revenue are optional bands for future routing.",
     },
-    system: "Qualification engine · Scorecard",
-    automation: {
-      pt: "Aplica score explicável e separa educar, nutrir, agendar ou escalar.",
-      en: "Applies an explainable score and routes to educate, nurture, book or escalate.",
-    },
-    human: {
-      pt: "Vendas revisa contas estratégicas e toda desqualificação contestada.",
-      en: "Sales reviews strategic accounts and every disputed disqualification.",
-    },
-    metric: { pt: "SQLs e motivo de perda", en: "SQLs and loss reason" },
-    gate: { pt: "Regra explicável e auditável", en: "Explainable, auditable rule" },
+    system: "Registration form · Supabase · Fit flags",
+    automation: { pt: "Sugere prioridade e rota; nunca rejeita ou precifica.", en: "Suggests priority and route; never rejects or prices." },
+    human: { pt: "Head de Vendas ou co-founder revisa contas estratégicas.", en: "Head of Sales or co-founder reviews strategic accounts." },
+    metric: { pt: "Inscrição → checkout", en: "Registration → checkout" },
+    gate: { pt: "Ticket não depende do score", en: "Ticket never depends on score" },
   },
   {
-    id: "takeover",
-    icon: "♟",
-    title: { pt: "Tomada humana", en: "Human takeover" },
-    subtitle: { pt: "Sostenes assume o fechamento", en: "Sostenes takes over the close" },
-    objective: {
-      pt: "Transferir contexto completo, pausar a IA e permitir negociação humana sem mensagens concorrentes.",
-      en: "Transfer full context, pause AI and allow human negotiation without competing messages.",
-    },
-    system: "Operator inbox · Pause lock · SLA alerts",
-    automation: {
-      pt: "Produz resumo, objeções, próximos passos e rascunho — não envia após a pausa.",
-      en: "Produces summary, objections, next steps and a draft — sends nothing after pause.",
-    },
-    human: {
-      pt: "Sostenes decide mensagem, proposta, desconto e retomada do agente.",
-      en: "Sostenes decides message, proposal, discount and agent resumption.",
-    },
-    metric: { pt: "Tempo para assumir e conversão", en: "Takeover time and conversion" },
-    gate: { pt: "Pausa atômica testada", en: "Atomic pause tested" },
-  },
-  {
-    id: "calendar",
-    icon: "□",
-    title: { pt: "Agendamento", en: "Scheduling" },
-    subtitle: { pt: "Calendly no momento certo", en: "Calendly at the right moment" },
-    objective: {
-      pt: "Liberar a agenda adequada somente após qualificação ou decisão humana.",
-      en: "Release the right calendar only after qualification or a human decision.",
-    },
-    system: "Calendly link · Booking webhook",
-    automation: {
-      pt: "Envia o link correto, registra booking, cancelamento e remarcação.",
-      en: "Sends the correct link and records bookings, cancellations and reschedules.",
-    },
-    human: {
-      pt: "Vendas define agendas, critérios e exceções para contas-alvo.",
-      en: "Sales defines calendars, criteria and target-account exceptions.",
-    },
-    metric: { pt: "Booking e show rate", en: "Booking and show rate" },
-    gate: { pt: "Webhook idempotente", en: "Idempotent webhook" },
-  },
-  {
-    id: "payment",
+    id: "lab-checkout",
     icon: "$",
-    title: { pt: "Pagamento", en: "Payment" },
-    subtitle: { pt: "Checkout em dólares", en: "USD checkout" },
+    title: { pt: "Checkout do Lab", en: "Lab checkout" },
+    subtitle: { pt: "US$99 sem reunião", en: "US$99 without a meeting" },
     objective: {
-      pt: "Converter uma decisão aprovada em pagamento rastreável, com confirmação no servidor.",
-      en: "Turn an approved decision into traceable payment, confirmed server-side.",
+      pt: "Fechar a compra do Deployment LAB diretamente, com preço e política de reembolso visíveis.",
+      en: "Close the Deployment LAB purchase directly, with visible price and refund policy.",
     },
     system: "Stripe Checkout · Payment webhook",
-    automation: {
-      pt: "Gera sessão, confirma o evento e atualiza o estágio uma única vez.",
-      en: "Creates the session, confirms the event and updates the stage exactly once.",
-    },
-    human: {
-      pt: "Founder aprova preço, parcelamento, reembolso e qualquer cobrança real.",
-      en: "Founder approves price, installments, refunds and every real charge.",
-    },
+    automation: { pt: "Confirma pagamento no servidor uma única vez.", en: "Confirms payment server-side exactly once." },
+    human: { pt: "Time aprova preço, reembolso e suporte.", en: "Team approves price, refund and support." },
     metric: { pt: "Checkout iniciado → pago", en: "Checkout started → paid" },
-    gate: { pt: "Teste Stripe antes de live", en: "Stripe test mode before live" },
+    gate: { pt: "Reembolso até 24h antes do evento", en: "Refund until 24h before the event" },
   },
   {
-    id: "dashboard",
-    icon: "▥",
-    title: { pt: "Dashboard", en: "Dashboard" },
-    subtitle: { pt: "Receita e operação observáveis", en: "Observable revenue and operations" },
+    id: "event-pass",
+    icon: "▤",
+    title: { pt: "Ingresso digital", en: "Digital event pass" },
+    subtitle: { pt: "Liberado após pagamento", en: "Released after payment" },
     objective: {
-      pt: "Dar ao time uma fila única com conversa, consentimento, score, responsável e resultado.",
-      en: "Give the team one queue with conversation, consent, score, owner and outcome.",
+      pt: "Entregar confirmação, ticket personalizado e instruções do evento somente após o webhook de pagamento.",
+      en: "Deliver confirmation, personalized pass and event instructions only after the payment webhook.",
     },
-    system: "Supabase · Realtime · RLS · CRM adapter",
-    automation: {
-      pt: "Atualiza estados, alerta gargalos e monta o relatório semanal.",
-      en: "Updates states, flags bottlenecks and builds the weekly report.",
+    system: "Ticket generator · Email/WhatsApp · Event ID",
+    automation: { pt: "Gera ingresso e registra a entrega.", en: "Generates the pass and records delivery." },
+    human: { pt: "Suporte resolve divergências e reemissões.", en: "Support resolves discrepancies and reissues." },
+    metric: { pt: "Pagos → ingressos entregues", en: "Paid → passes delivered" },
+    gate: { pt: "Sem confirmação baseada no navegador", en: "No browser-only confirmation" },
+  },
+  {
+    id: "fit-routing",
+    icon: "↗",
+    title: { pt: "Roteamento de fit", en: "Fit routing" },
+    subtitle: { pt: "Lab, agenda ou pitch", en: "Lab, calendar or pitch" },
+    objective: {
+      pt: "Separar quem segue apenas no Lab de quem pode receber convite opcional para uma conversa sobre implementação.",
+      en: "Separate Lab-only participants from those who may receive an optional implementation conversation invite.",
     },
-    human: {
-      pt: "Gestores auditam conversas, corrigem regras e aprovam mudanças.",
-      en: "Managers audit conversations, correct rules and approve changes.",
-    },
-    metric: { pt: "Funil, receita e qualidade", en: "Funnel, revenue and quality" },
-    gate: { pt: "RLS + trilha de auditoria", en: "RLS + audit trail" },
+    system: "Supabase · Scorecard · Calendly · Audit log",
+    automation: { pt: "Recomenda a rota e apresenta razões auditáveis.", en: "Recommends a route with auditable reasons." },
+    human: { pt: "Head de Vendas ou co-founder decide agenda, proposta e preço.", en: "Head of Sales or co-founder decides calendar, proposal and price." },
+    metric: { pt: "Fit revisado, agendado e fechado", en: "Fit reviewed, booked and closed" },
+    gate: { pt: "Toda decisão comercial é humana", en: "Every commercial decision is human" },
   },
 ];
 
 const messages = {
   ai: [
-    { side: "lead", text: "Temos 42 pessoas e o onboarding ainda depende de planilhas e cobranças manuais." },
-    { side: "agent", text: "Entendi. Para medir a prioridade: quantas horas o time perde por semana e quem aprovaria uma mudança no processo?" },
-    { side: "lead", text: "Perto de 30 horas. Eu sou a CEO e a operação participa da decisão." },
-    { side: "agent", text: "Há impacto e autoridade claros. Posso fazer mais duas perguntas e, se houver aderência, abrir a agenda do especialista?" },
+    { side: "lead", text: "Olá! Vim baixar a Skill do CEO." },
+    { side: "agent", text: "Perfeito — sou o assistente automatizado da Deployment.co. Aqui estão a Skill do CEO e o guia de instalação. Se quiser, posso ajudar com qualquer etapa." },
+    { side: "lead", text: "Recebi. Nosso maior problema é o onboarding, hoje muito manual." },
+    { side: "agent", text: "Pelo perfil informado, o Deployment LAB pode fazer sentido para você: 4 horas online implementando IA na prática, com certificado de participação. Custa US$99 e tem capacidade limitada. Posso enviar o link?" },
   ],
   human: [
-    { side: "lead", text: "Precisamos integrar com dados financeiros. Quem garante a segurança?" },
-    { side: "agent", text: "Sinal sensível identificado. A IA foi pausada e o contexto foi encaminhado para Sostenes." },
-    { side: "human", text: "Olá, aqui é Sostenes. Antes de falar em integração, vamos delimitar dados, acessos e o piloto sem escrita em produção." },
+    { side: "lead", text: "Antes de avançar, preciso entender como vocês tratam dados financeiros." },
+    { side: "agent", text: "Identifiquei uma dúvida sensível. Pausei a automação e encaminhei o contexto para o time." },
+    { side: "human", text: "Olá, aqui é o Head de Vendas. Antes de falar em integração, vamos delimitar dados, acessos e um piloto seguro." },
   ],
 };
 
 const syntheticLeads = [
-  { company: "Aurum Logística", source: "Audit PDF", score: 86, state: "Humano", next: "Revisar segurança", owner: "Sostenes" },
-  { company: "Norte Retail", source: "CEO Skill", score: 74, state: "IA", next: "Pergunta 4/5", owner: "Agent" },
-  { company: "Vale Serviços", source: "Partner", score: 92, state: "Booked", next: "Aug 06 · 10:00", owner: "Sostenes" },
-  { company: "Lumen Foods", source: "Content", score: 48, state: "Nurture", next: "Case note", owner: "Agent" },
+  { company: "Aurum Logística", source: "CEO Skill", score: 86, state: "Humano", next: "Revisar fit", owner: "Head de Vendas" },
+  { company: "Norte Retail", source: "CEO Skill", score: 74, state: "IA", next: "Enviar link do Lab", owner: "Agent" },
+  { company: "Vale Serviços", source: "CEO Skill", score: 92, state: "Booked", next: "Conversa de fit", owner: "Co-founder" },
+  { company: "Lumen Foods", source: "CEO Skill", score: 48, state: "Nurture", next: "Participar do Lab", owner: "Agent" },
 ];
 
 const phases = [
@@ -241,7 +187,7 @@ const phases = [
   {
     n: "01",
     title: { pt: "Instrumentar a entrada", en: "Instrument acquisition" },
-    body: { pt: "Landing, formulário, consentimento, eventos e Stripe em modo de teste.", en: "Landing, form, consent, events and Stripe in test mode." },
+    body: { pt: "Landing, formulários, aviso de contato, eventos e Stripe em modo de teste.", en: "Landing, forms, contact notice, events and Stripe in test mode." },
     exit: { pt: "Dados chegam íntegros e sem duplicação", en: "Data arrives intact and without duplicates" },
   },
   {
@@ -271,22 +217,23 @@ const phases = [
 ];
 
 const approvalItems = [
-  { pt: "Oferta inicial e CTA do funil", en: "Initial offer and funnel CTA" },
-  { pt: "Até 5 perguntas e regra de qualificação", en: "Up to 5 questions and qualification rule" },
-  { pt: "Quando a IA deve parar e chamar Sostenes", en: "When AI must stop and call Sostenes" },
-  { pt: "Dados coletados, retenção e aviso de privacidade", en: "Collected data, retention and privacy notice" },
-  { pt: "Calendário, preço em USD e política de reembolso", en: "Calendar, USD price and refund policy" },
-  { pt: "Fontes autorizadas de depoimentos e provas", en: "Authorized testimonial and proof sources" },
+  { pt: "Skill do CEO, promessa e tutorial de instalação", en: "CEO Skill, promise and installation tutorial" },
+  { pt: "Cinco campos iniciais e aviso curto ao lado do CTA", en: "Five initial fields and short notice beside the CTA" },
+  { pt: "Fluxo 1:1, opção de canal e regras de handoff", en: "1:1 flow, channel option and handoff rules" },
+  { pt: "Convite do Lab e cadência de follow-up", en: "Lab invitation and follow-up cadence" },
+  { pt: "Campos do pré-checkout e critérios de fit humano", en: "Pre-checkout fields and human fit criteria" },
+  { pt: "US$99, horários finais, reembolso, pitches e ticket", en: "US$99, final times, refund, pitches and ticket" },
 ];
 
 const funnelMetrics = [
-  ["01", "Visitantes qualificados", "Qualified visitors"],
-  ["02", "Opt-ins com consentimento", "Consented opt-ins"],
-  ["03", "Conversas iniciadas", "Conversations started"],
-  ["04", "Leads qualificados", "Qualified leads"],
-  ["05", "Reuniões agendadas", "Meetings booked"],
-  ["06", "Reuniões realizadas", "Meetings held"],
-  ["07", "Pagamentos confirmados", "Payments confirmed"],
+  ["01", "Visitas da Skill", "Skill visits"],
+  ["02", "Formulários completos", "Completed forms"],
+  ["03", "Conversas 1:1", "1:1 conversations"],
+  ["04", "Skills entregues", "Skills delivered"],
+  ["05", "Pré-checkouts", "Pre-checkouts"],
+  ["06", "Ingressos pagos", "Paid tickets"],
+  ["07", "Fits revisados", "Reviewed fits"],
+  ["08", "Reuniões high-ticket", "High-ticket meetings"],
 ];
 
 export default function WhatsAppFunnelBlueprint() {
@@ -329,11 +276,11 @@ export default function WhatsAppFunnelBlueprint() {
         <div className="wf-hero-grid">
           <div>
             <p className="wf-eyebrow">{language === "pt" ? "Blueprint visual para decisão" : "Visual decision blueprint"}</p>
-            <h1>{language === "pt" ? "Do primeiro clique à receita — com o humano no controle." : "From first click to revenue — with humans in control."}</h1>
+            <h1>{language === "pt" ? "Da Skill do CEO ao cliente certo." : "From the CEO Skill to the right customer."}</h1>
             <p className="wf-lead">
               {language === "pt"
-                ? "Um sistema de aquisição, WhatsApp, qualificação, fechamento e mensuração desenhado para ser observado, assumido e melhorado pelo time."
-                : "An acquisition, WhatsApp, qualification, closing and measurement system designed to be observed, taken over and improved by the team."}
+                ? "Um sistema visual de captação, entrega, venda do Lab e qualificação para projetos de US$3k, US$5k e US$7k por mês."
+                : "A visual system for acquisition, delivery, Lab sales and qualification into US$3k, US$5k and US$7k monthly engagements."}
             </p>
             <div className="wf-hero-actions">
               <a className="wf-primary" href="#flow">{language === "pt" ? "Explorar o fluxo" : "Explore the flow"}</a>
@@ -344,10 +291,10 @@ export default function WhatsAppFunnelBlueprint() {
             {/* The static asset is intentionally unoptimized because this app runs on vinext/Workers. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/whatsapp-revenue-system.png"
-              alt={language === "pt" ? "Ilustração editorial do funil completo" : "Editorial illustration of the full funnel"}
-              width={1200}
-              height={630}
+              src="/deployment-implementation-lab-ticket.png"
+              alt={language === "pt" ? "Ingresso promocional do Deployment LAB" : "Promotional pass for the Deployment LAB"}
+              width={1536}
+              height={1024}
             />
           </div>
         </div>
@@ -362,10 +309,10 @@ export default function WhatsAppFunnelBlueprint() {
       <section className="wf-section wf-thesis" aria-labelledby="thesis-title">
         <div className="wf-section-label">01 · {language === "pt" ? "A tese" : "The thesis"}</div>
         <div className="wf-thesis-grid">
-          <h2 id="thesis-title">{language === "pt" ? "A página não é o funil. O sistema completo é o produto." : "The page is not the funnel. The full system is the product."}</h2>
+          <h2 id="thesis-title">{language === "pt" ? "A Skill abre a conversa. O Lab prova o método. O fit define a próxima rota." : "The Skill opens the conversation. The Lab proves the method. Fit defines the next route."}</h2>
           <div className="wf-thesis-copy">
-            <p>{language === "pt" ? "O lead entra por um ativo relevante, entende a proposta em uma jornada móvel, autoriza o contato e é conduzido até a melhor próxima ação." : "The lead enters through a relevant asset, understands the offer in a mobile journey, authorizes contact and is guided to the best next action."}</p>
-            <p>{language === "pt" ? "A IA reduz trabalho repetitivo. O humano preserva confiança, segurança, negociação e julgamento." : "AI reduces repetitive work. Humans preserve trust, safety, negotiation and judgment."}</p>
+            <p>{language === "pt" ? "O US$99 fecha direto. Não existe reunião obrigatória, score secreto ou barreira para receber o conteúdo comprado." : "The US$99 offer closes directly. There is no mandatory meeting, secret score or barrier to receiving the purchased content."}</p>
+            <p>{language === "pt" ? "A automação organiza sinais e entrega contexto. Head de Vendas ou co-founder decide agenda, escopo, proposta e preço dos serviços maiores." : "Automation organizes signals and transfers context. Head of Sales or a co-founder decides calendar, scope, proposal and price for larger engagements."}</p>
           </div>
         </div>
       </section>
@@ -417,43 +364,98 @@ export default function WhatsAppFunnelBlueprint() {
         </article>
 
         <div className="wf-route-map" aria-label={language === "pt" ? "Rotas comerciais" : "Commercial routes"}>
-          <div className="wf-route-start"><span>QUALIFIED INTENT</span><strong>{language === "pt" ? "O sistema escolhe a próxima ação — não empurra todos pelo mesmo caminho." : "The system chooses the next action — it does not push everyone down the same path."}</strong></div>
+          <div className="wf-route-start"><span>ONE SYSTEM · THREE ROUTES</span><strong>{language === "pt" ? "A entrada é única. O pagamento de US$99 é direto. Serviços maiores exigem conversa e decisão humana." : "The entry is shared. The US$99 payment is direct. Larger services require a conversation and human decision."}</strong></div>
           <article>
             <span className="wf-route-letter">A</span>
-            <div><p className="wf-eyebrow">US$99 · Fixed offer</p><h3>Implementation Day</h3><p>{language === "pt" ? "Landing → consentimento → Stripe Checkout → confirmação → WhatsApp de onboarding." : "Landing → consent → Stripe Checkout → confirmation → onboarding WhatsApp."}</p></div>
-            <small>{language === "pt" ? "Sem reunião obrigatória · reembolso até 24h antes" : "No mandatory meeting · refund until 24h before"}</small>
+            <div><p className="wf-eyebrow">Acquisition · Free asset</p><h3>CEO Skill</h3><p>{language === "pt" ? "Micro-site → formulário curto → WhatsApp 1:1 → skill + tutorial no privado → convite pessoal para o Lab." : "Micro-site → short form → 1:1 WhatsApp → private skill + tutorial → personal Lab invitation."}</p></div>
+            <small>{language === "pt" ? "Grupo/canal é opcional e separado" : "Group/channel is optional and separate"}</small>
           </article>
           <article>
             <span className="wf-route-letter">B</span>
-            <div><p className="wf-eyebrow">High-ticket · Custom scope</p><h3>{language === "pt" ? "Implementação empresarial" : "Enterprise implementation"}</h3><p>{language === "pt" ? "WhatsApp → qualificação → Sostenes assume → Calendly → escopo/acordo → Stripe." : "WhatsApp → qualification → Sostenes takes over → Calendly → scope/agreement → Stripe."}</p></div>
-            <small>{language === "pt" ? "Cobrança após decisão humana" : "Charge after human decision"}</small>
+            <div><p className="wf-eyebrow">US$99 · Direct checkout</p><h3>Deployment LAB</h3><p>{language === "pt" ? "Pré-checkout → Stripe → pagamento confirmado → ingresso digital → 4 horas de imersão online em 15 de agosto." : "Pre-checkout → Stripe → confirmed payment → digital pass → 4-hour online immersion on August 15."}</p></div>
+            <small>{language === "pt" ? "09h–13h SF · 13h–17h Brasil · capacidade limitada" : "9am–1pm SF · 1pm–5pm Brazil · limited capacity"}</small>
           </article>
           <article>
             <span className="wf-route-letter">C</span>
-            <div><p className="wf-eyebrow">Not yet ready</p><h3>{language === "pt" ? "Nutrição com permissão" : "Permission-based nurture"}</h3><p>{language === "pt" ? "Entregar conteúdo útil, respeitar canal/frequência e permitir opt-out imediato." : "Deliver useful content, respect channel/frequency and allow immediate opt-out."}</p></div>
-            <small>{language === "pt" ? "Sem insistência automática" : "No automated pressure"}</small>
+            <div><p className="wf-eyebrow">US$3k · US$5k · US$7k / month</p><h3>{language === "pt" ? "Implementação e acompanhamento" : "Implementation and advisory"}</h3><p>{language === "pt" ? "Sinal de fit → revisão humana → Calendly → conversa → escopo/acordo → pagamento. No evento, a CTA é solicitar conversa de encaixe." : "Fit signal → human review → Calendly → conversation → scope/agreement → payment. At the event, the CTA is to request a fit conversation."}</p></div>
+            <small>{language === "pt" ? "Head de Vendas ou co-founder fecha" : "Head of Sales or co-founder closes"}</small>
           </article>
         </div>
       </section>
 
       <section className="wf-section wf-acquisition" aria-labelledby="acquisition-title">
-        <div className="wf-section-label">03 · {language === "pt" ? "Portas de entrada" : "Entry points"}</div>
+        <div className="wf-section-label">03 · {language === "pt" ? "Entrada única" : "Single entry"}</div>
         <div className="wf-section-heading">
           <div>
-            <p className="wf-eyebrow">{language === "pt" ? "Captação por valor" : "Value-led acquisition"}</p>
-            <h2 id="acquisition-title">{language === "pt" ? "Três razões para o decisor começar." : "Three reasons for a decision-maker to start."}</h2>
+            <p className="wf-eyebrow">{language === "pt" ? "Captação por utilidade real" : "Acquisition through real utility"}</p>
+            <h2 id="acquisition-title">{language === "pt" ? "A Skill do CEO é a porta de entrada." : "The CEO Skill is the entry point."}</h2>
           </div>
-          <p>{language === "pt" ? "Uma oferta por campanha; o sistema registra qual ativo iniciou a conversa." : "One offer per campaign; the system records which asset started the conversation."}</p>
+          <p>{language === "pt" ? "A promessa precisa ser concreta: instalar uma ferramenta que ajuda o líder a mapear prioridades, decisões e oportunidades de IA — antes de qualquer venda." : "The promise must be concrete: install a tool that helps the leader map priorities, decisions and AI opportunities — before any sale."}</p>
         </div>
         <div className="wf-three-cards">
-          <article><span className="wf-big-icon">⌁</span><p className="wf-eyebrow">Lead magnet 01</p><h3>CEO Operating Skill</h3><p>{language === "pt" ? "Download com passo a passo. Captura empresa, cargo, desafio e autorização antes da entrega." : "Step-by-step download. Captures company, role, challenge and authorization before delivery."}</p><small>{language === "pt" ? "Hipótese a validar" : "Hypothesis to validate"}</small></article>
-          <article><span className="wf-big-icon">⌕</span><p className="wf-eyebrow">Lead magnet 02</p><h3>AI Opportunity Audit</h3><p>{language === "pt" ? "PDF profissional com gargalos observados e perguntas — sem fingir diagnóstico profundo ou resultado garantido." : "Professional PDF with observed gaps and questions — without pretending to be a deep diagnosis or guaranteed result."}</p><small>{language === "pt" ? "Gerado com evidência citada" : "Generated with cited evidence"}</small></article>
-          <article><span className="wf-big-icon">◫</span><p className="wf-eyebrow">Conversion event</p><h3>Implementation Day</h3><p>{language === "pt" ? "Evento pago que transforma intenção em experiência e abre duas rotas de oferta durante a entrega." : "Paid event that turns intent into experience and opens two offer paths during delivery."}</p><small>Aug 15 · Online · US$99 · 100 seats</small></article>
+          <article><span className="wf-big-icon">01</span><p className="wf-eyebrow">Promise</p><h3>{language === "pt" ? "Diagnosticar melhor" : "Diagnose better"}</h3><p>{language === "pt" ? "A Skill organiza contexto, prioridades e perguntas para o CEO encontrar onde a IA pode reduzir fricção operacional." : "The Skill organizes context, priorities and questions so a CEO can find where AI may reduce operational friction."}</p><small>{language === "pt" ? "Sem promessa de ROI" : "No ROI promise"}</small></article>
+          <article><span className="wf-big-icon">02</span><p className="wf-eyebrow">Delivery</p><h3>{language === "pt" ? "Instalar e usar" : "Install and use"}</h3><p>{language === "pt" ? "Após o formulário, a pessoa inicia o WhatsApp 1:1 e recebe a Skill, o tutorial e suporte de onboarding no privado." : "After the form, the person starts a 1:1 WhatsApp chat and receives the Skill, tutorial and private onboarding support."}</p><small>{language === "pt" ? "Entrega antes da oferta" : "Delivery before the offer"}</small></article>
+          <article><span className="wf-big-icon">03</span><p className="wf-eyebrow">Conversion</p><h3>Deployment LAB</h3><p>{language === "pt" ? "Depois de entregar valor, o agente conecta o problema ao evento de US$99: 4 horas implementando IA na prática, com certificado de participação." : "After delivering value, the agent connects the problem to the US$99 event: 4 hours implementing AI in practice, with a certificate of participation."}</p><small>15 Aug · 09:00 SF · 13:00 BR · Limited capacity</small></article>
+        </div>
+      </section>
+
+      <section className="wf-section wf-registration" aria-labelledby="registration-title">
+        <div className="wf-section-label">04 · {language === "pt" ? "Dados e conversão" : "Data and conversion"}</div>
+        <div className="wf-section-heading">
+          <div>
+            <p className="wf-eyebrow">Two forms · Two moments</p>
+            <h2 id="registration-title">{language === "pt" ? "Primeiro, só o necessário. Depois, o contexto do Lab." : "First, only what is necessary. Then, the Lab context."}</h2>
+          </div>
+          <p>{language === "pt" ? "O primeiro formulário libera a entrega. O segundo prepara a experiência e cria sinais opcionais para uma futura conversa comercial." : "The first form unlocks delivery. The second prepares the experience and creates optional signals for a future commercial conversation."}</p>
+        </div>
+        <div className="wf-form-flow">
+          <article className="wf-form-card">
+            <div className="wf-form-top"><span>01</span><div><p className="wf-eyebrow">CEO Skill</p><h3>{language === "pt" ? "Formulário inicial" : "Initial form"}</h3></div></div>
+            <div className="wf-field-grid">
+              <label><span>{language === "pt" ? "Nome" : "Name"}</span><i>{language === "pt" ? "Seu nome" : "Your name"}</i></label>
+              <label><span>{language === "pt" ? "E-mail profissional" : "Work email"}</span><i>name@company.com</i></label>
+              <label><span>{language === "pt" ? "Empresa" : "Company"}</span><i>{language === "pt" ? "Nome da empresa" : "Company name"}</i></label>
+              <label><span>{language === "pt" ? "Tamanho da empresa" : "Company size"}</span><i>1–10 · 11–50 · 51–200 · 201+</i></label>
+              <label className="full"><span>{language === "pt" ? "Qual problema mais limita sua operação hoje?" : "What problem limits your operation most today?"}</span><i>{language === "pt" ? "Resposta curta" : "Short answer"}</i></label>
+            </div>
+            <button type="button">{language === "pt" ? "Continuar no WhatsApp →" : "Continue on WhatsApp →"}</button>
+            <small>{language === "pt" ? "Ao continuar, você inicia uma conversa 1:1 com o assistente automatizado da Deployment.co para receber a Skill e suporte. Atendimento humano e saída disponíveis. Canal de avisos é opcional." : "By continuing, you start a 1:1 conversation with Deployment.co’s automated assistant to receive the Skill and support. Human help and opt-out are available. The announcement channel is optional."}</small>
+          </article>
+
+          <div className="wf-form-arrow" aria-hidden="true"><span>WhatsApp 1:1</span><b>→</b><small>{language === "pt" ? "Skill entregue · convite aceito" : "Skill delivered · invite accepted"}</small></div>
+
+          <article className="wf-form-card accent">
+            <div className="wf-form-top"><span>02</span><div><p className="wf-eyebrow">Deployment LAB</p><h3>{language === "pt" ? "Pré-checkout" : "Pre-checkout"}</h3></div></div>
+            <div className="wf-field-grid">
+              <label className="full"><span>{language === "pt" ? "O que você quer aprender ou implementar?" : "What do you want to learn or implement?"}</span><i>{language === "pt" ? "Objetivo para o Lab" : "Goal for the Lab"}</i></label>
+              <label className="full"><span>{language === "pt" ? "Qual é sua maior dificuldade atual?" : "What is your biggest current challenge?"}</span><i>{language === "pt" ? "Resposta curta" : "Short answer"}</i></label>
+              <label><span>{language === "pt" ? "Seu perfil" : "Your role"}</span><i>Founder · Executive · Employee</i></label>
+              <label><span>{language === "pt" ? "Participa da decisão?" : "Decision role?"}</span><i>Yes · With others · No</i></label>
+              <label><span>{language === "pt" ? "Porte (opcional)" : "Size (optional)"}</span><i>1–10 · 11–50 · 51–200 · 201+</i></label>
+              <label><span>{language === "pt" ? "Faturamento (opcional)" : "Revenue (optional)"}</span><i>{language === "pt" ? "Faixa anual" : "Annual band"}</i></label>
+            </div>
+            <button type="button">{language === "pt" ? "Ir para o checkout de US$99 →" : "Go to the US$99 checkout →"}</button>
+            <small>{language === "pt" ? "Esses sinais não bloqueiam o ingresso. Eles ajudam a adaptar o Lab e podem sugerir uma conversa futura, sempre revisada por uma pessoa." : "These signals do not gate the ticket. They help tailor the Lab and may suggest a future conversation, always reviewed by a person."}</small>
+          </article>
+        </div>
+
+        <div className="wf-ticket-panel">
+          <div className="wf-ticket-copy">
+            <p className="wf-eyebrow">Payment confirmed → event pass</p>
+            <h3>{language === "pt" ? "Um ingresso que já parece parte da experiência." : "A pass that already feels like part of the experience."}</h3>
+            <p>{language === "pt" ? "Após o Stripe confirmar o US$99 no servidor, o sistema gera o ingresso pessoal e envia as instruções. A arte ao lado é a versão promocional para divulgação — não comprova compra e não contém QR válido." : "After Stripe confirms the US$99 server-side, the system generates the personal pass and sends instructions. The artwork shown is the promotional version — it is not proof of purchase and does not contain a valid QR."}</p>
+            <div className="wf-ticket-facts"><span>15 AUG 2026</span><span>09:00–13:00 PDT</span><span>13:00–17:00 BRT</span><span>4 HOURS</span><span>CERTIFICATE INCLUDED</span><span>LIMITED CAPACITY</span><span>US$99</span></div>
+            <a href="/deployment-implementation-lab-ticket.png" download>{language === "pt" ? "Baixar arte do ingresso ↧" : "Download ticket artwork ↧"}</a>
+          </div>
+          <div className="wf-ticket-image">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/deployment-implementation-lab-ticket.png" alt={language === "pt" ? "Ingresso promocional vintage do Deployment LAB com a Golden Gate Bridge" : "Vintage promotional pass for the Deployment LAB with the Golden Gate Bridge"} width={1536} height={1024} />
+          </div>
         </div>
       </section>
 
       <section className="wf-section wf-demo" aria-labelledby="demo-title">
-        <div className="wf-section-label">04 · {language === "pt" ? "Demonstração" : "Demonstration"}</div>
+        <div className="wf-section-label">05 · {language === "pt" ? "Demonstração" : "Demonstration"}</div>
         <div className="wf-section-heading">
           <div>
             <p className="wf-eyebrow">{language === "pt" ? "Conversa fictícia" : "Fictional conversation"}</p>
@@ -468,7 +470,7 @@ export default function WhatsAppFunnelBlueprint() {
           <div className="wf-phone">
             <div className="wf-phone-header">
               <span className="wf-avatar">D</span>
-              <div><strong>Deployment.co</strong><small>{conversationMode === "ai" ? (language === "pt" ? "Agente ativo · protótipo" : "Agent active · prototype") : (language === "pt" ? "Sostenes assumiu · IA pausada" : "Sostenes joined · AI paused")}</small></div>
+              <div><strong>Deployment.co</strong><small>{conversationMode === "ai" ? (language === "pt" ? "Assistente automatizado · protótipo" : "Automated assistant · prototype") : (language === "pt" ? "Head de Vendas assumiu · IA pausada" : "Head of Sales joined · AI paused")}</small></div>
               <span className={`wf-live-dot ${conversationMode}`} />
             </div>
             <div className="wf-chat">
@@ -485,8 +487,8 @@ export default function WhatsAppFunnelBlueprint() {
               <div><dt>{language === "pt" ? "Dor" : "Pain"}</dt><dd>{language === "pt" ? "30 h/semana em tarefas manuais" : "30 h/week in manual tasks"}</dd></div>
               <div><dt>{language === "pt" ? "Autoridade" : "Authority"}</dt><dd>CEO + Operations</dd></div>
               <div><dt>Score</dt><dd>86 / 100 · {language === "pt" ? "explicável" : "explainable"}</dd></div>
-              <div><dt>{language === "pt" ? "Próxima ação" : "Next action"}</dt><dd>{conversationMode === "ai" ? (language === "pt" ? "Validar 2 perguntas" : "Validate 2 questions") : (language === "pt" ? "Revisão de segurança" : "Security review")}</dd></div>
-              <div><dt>Owner · SLA</dt><dd>{conversationMode === "ai" ? "Agent · instant" : "Sostenes · 15 min"}</dd></div>
+              <div><dt>{language === "pt" ? "Próxima ação" : "Next action"}</dt><dd>{conversationMode === "ai" ? (language === "pt" ? "Enviar link do Lab" : "Send Lab link") : (language === "pt" ? "Revisão de segurança" : "Security review")}</dd></div>
+              <div><dt>Owner · SLA</dt><dd>{conversationMode === "ai" ? "Agent · instant" : (language === "pt" ? "Head de Vendas · 15 min" : "Head of Sales · 15 min")}</dd></div>
             </dl>
             <div className="wf-confidence"><span>{language === "pt" ? "Confiança do agente" : "Agent confidence"}</span><div><i style={{ width: conversationMode === "ai" ? "82%" : "38%" }} /></div><strong>{conversationMode === "ai" ? "82%" : "38%"}</strong></div>
             <button className={`wf-takeover ${conversationMode === "human" ? "paused" : ""}`} onClick={() => setConversationMode(conversationMode === "ai" ? "human" : "ai")}>
@@ -497,15 +499,45 @@ export default function WhatsAppFunnelBlueprint() {
         </div>
       </section>
 
+      <section className="wf-section wf-offers" aria-labelledby="offers-title">
+        <div className="wf-section-label">06 · {language === "pt" ? "Esteira e pitches" : "Offer ladder and pitches"}</div>
+        <div className="wf-section-heading">
+          <div><p className="wf-eyebrow">US$99 → fit conversation → engagement</p><h2 id="offers-title">{language === "pt" ? "Dois momentos de pitch. Uma única CTA." : "Two pitch moments. One CTA."}</h2></div>
+          <p>{language === "pt" ? "O pitch não interrompe a entrega nem condiciona o ingresso. No evento, a pessoa apenas levanta a mão para uma conversa de encaixe; a proposta vem depois da revisão humana." : "The pitch does not interrupt delivery or condition the ticket. At the event, the participant only raises a hand for a fit conversation; the proposal comes after human review."}</p>
+        </div>
+        <div className="wf-pitch-timeline">
+          <article className="primary">
+            <span>01 · {language === "pt" ? "MEIO DO EVENTO" : "MID-EVENT"}</span>
+            <p className="wf-eyebrow">Private implementation · soft invitation</p>
+            <h3>{language === "pt" ? "Convite para implementação privada" : "Private implementation invitation"}</h3>
+            <p>{language === "pt" ? "Apresentar o custo de continuar com processos manuais, mostrar o mecanismo e convidar quem tem urgência e capacidade de execução a solicitar uma conversa." : "Frame the cost of remaining manual, show the mechanism and invite those with urgency and implementation capacity to request a conversation."}</p>
+            <div className="wf-offer-price"><strong>US$7k<span>/month</span></strong><small>{language === "pt" ? "implementação gerenciada · acompanhamento semanal + WhatsApp" : "managed implementation · weekly support + WhatsApp"}</small></div>
+            <div className="wf-offer-price secondary"><strong>US$5k<span>/month</span></strong><small>{language === "pt" ? "rota privada · uma sessão mensal + escopo acordado" : "private route · one monthly session + agreed scope"}</small></div>
+            <b>{language === "pt" ? "CTA: solicitar conversa de encaixe" : "CTA: request a fit conversation"}</b>
+          </article>
+          <article>
+            <span>02 · {language === "pt" ? "FINAL DO EVENTO" : "END OF EVENT"}</span>
+            <p className="wf-eyebrow">Group route · final invitation</p>
+            <h3>{language === "pt" ? "Rota de implementação em grupo" : "Group implementation route"}</h3>
+            <p>{language === "pt" ? "Para quem quer acompanhamento, mas não precisa da rota privada. A entrada depende de encaixe operacional, não de um score automático." : "For those who want support but do not need the private route. Entry depends on operational fit, not an automatic score."}</p>
+            <div className="wf-offer-price"><strong>US$3k<span>/month</span></strong><small>{language === "pt" ? "grupo de até 10 empresas · acompanhamento compartilhado" : "group of up to 10 companies · shared support"}</small></div>
+            <b>{language === "pt" ? "CTA: a mesma conversa de encaixe" : "CTA: the same fit conversation"}</b>
+          </article>
+        </div>
+        <div className="wf-close-flow" aria-label={language === "pt" ? "Fluxo de fechamento high-ticket" : "High-ticket close flow"}>
+          <span>{language === "pt" ? "Interesse" : "Interest"}</span><b>→</b><span>{language === "pt" ? "Revisão humana" : "Human review"}</span><b>→</b><span>Calendly</span><b>→</b><span>{language === "pt" ? "Conversa de fit" : "Fit conversation"}</span><b>→</b><span>{language === "pt" ? "Escopo + acordo" : "Scope + agreement"}</span><b>→</b><span>Stripe</span>
+        </div>
+      </section>
+
       <section className="wf-section wf-architecture" aria-labelledby="architecture-title">
-        <div className="wf-section-label">05 · {language === "pt" ? "Arquitetura" : "Architecture"}</div>
+        <div className="wf-section-label">07 · {language === "pt" ? "Arquitetura" : "Architecture"}</div>
         <div className="wf-section-heading">
           <div><p className="wf-eyebrow">{language === "pt" ? "Camadas independentes" : "Independent layers"}</p><h2 id="architecture-title">{language === "pt" ? "Trocar ferramentas sem perder o processo." : "Change tools without losing the process."}</h2></div>
           <p>{language === "pt" ? "O banco guarda o estado; integrações entram por adaptadores; toda mudança crítica gera evento e trilha." : "The database holds state; integrations enter through adapters; every critical change creates an event and trail."}</p>
         </div>
         <div className="wf-system-map">
           <div className="wf-map-row edge">
-            <div><span>▣</span><strong>Premium micro-site</strong><small>Form · Consent · Source</small></div>
+            <div><span>▣</span><strong>CEO Skill micro-site</strong><small>Short form · Source · Notice</small></div>
             <b>→</b>
             <div><span>◉</span><strong>Meta WhatsApp</strong><small>Cloud API · Webhooks</small></div>
             <b>→</b>
@@ -513,7 +545,7 @@ export default function WhatsAppFunnelBlueprint() {
           </div>
           <div className="wf-map-core">
             <span className="wf-core-label">SYSTEM OF RECORD</span>
-            <div><span>▦</span><strong>Supabase</strong><small>Leads · Messages · Consent · Events</small></div>
+            <div><span>▦</span><strong>Supabase</strong><small>Leads · Messages · Preferences · Events</small></div>
             <div><span>♟</span><strong>Operator Dashboard</strong><small>Queue · Takeover · Audit</small></div>
             <div><span>⌁</span><strong>Policy & Evaluation</strong><small>Confidence · Red flags · QA</small></div>
           </div>
@@ -528,7 +560,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-dashboard" aria-labelledby="dashboard-title">
-        <div className="wf-section-label">06 · {language === "pt" ? "Painel de controle" : "Control dashboard"}</div>
+        <div className="wf-section-label">08 · {language === "pt" ? "Painel de controle" : "Control dashboard"}</div>
         <div className="wf-section-heading">
           <div><p className="wf-eyebrow">{language === "pt" ? "Dados 100% sintéticos" : "100% synthetic data"}</p><h2 id="dashboard-title">{language === "pt" ? "O dono vê o que a IA está fazendo." : "The owner sees what AI is doing."}</h2></div>
           <p>{language === "pt" ? "A fila responde quatro perguntas: quem entrou, por quê, quem controla e qual é a próxima ação." : "The queue answers four questions: who entered, why, who controls it and what happens next."}</p>
@@ -536,7 +568,7 @@ export default function WhatsAppFunnelBlueprint() {
         <div className="wf-dashboard-shell">
           <div className="wf-dashboard-nav"><strong>Deployment<span>.co</span></strong><span>{language === "pt" ? "Pipeline ao vivo · conceito" : "Live pipeline · concept"}</span><button>{language === "pt" ? "Exportar relatório" : "Export report"}</button></div>
           <div className="wf-dashboard-controls">
-            <span>✓ {language === "pt" ? "Consentimento registrado" : "Consent recorded"}</span>
+            <span>✓ {language === "pt" ? "Contato solicitado" : "Contact requested"}</span>
             <span>◷ {language === "pt" ? "Retenção a definir" : "Retention to define"}</span>
             <span>♟ {language === "pt" ? "RBAC + MFA obrigatórios" : "RBAC + MFA required"}</span>
             <button>{language === "pt" ? "Opt-out / exportar / apagar" : "Opt-out / export / delete"}</button>
@@ -557,7 +589,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-evidence" aria-labelledby="evidence-title">
-        <div className="wf-section-label">07 · {language === "pt" ? "Prova e linguagem" : "Proof and language"}</div>
+        <div className="wf-section-label">09 · {language === "pt" ? "Prova e linguagem" : "Proof and language"}</div>
         <div className="wf-section-heading">
           <div><p className="wf-eyebrow">{language === "pt" ? "Sem prova inventada" : "No invented proof"}</p><h2 id="evidence-title">{language === "pt" ? "Pesquisa entra como insumo. Evidência sai com permissão." : "Research enters as input. Evidence exits with permission."}</h2></div>
           <p>{language === "pt" ? "Firecrawl pode apoiar pesquisa pública autorizada; não transforma comentários de terceiros em depoimentos da Deployment.co." : "Firecrawl can support authorized public research; it does not turn third-party comments into Deployment.co testimonials."}</p>
@@ -571,9 +603,9 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-metrics" aria-labelledby="metrics-title">
-        <div className="wf-section-label">08 · {language === "pt" ? "Medição" : "Measurement"}</div>
+        <div className="wf-section-label">10 · {language === "pt" ? "Medição" : "Measurement"}</div>
         <div className="wf-section-heading">
-          <div><p className="wf-eyebrow">{language === "pt" ? "Uma equação operacional" : "One operating equation"}</p><h2 id="metrics-title">{language === "pt" ? "Receita é consequência de sete conversões observáveis." : "Revenue is the consequence of seven observable conversions."}</h2></div>
+          <div><p className="wf-eyebrow">{language === "pt" ? "Uma equação operacional" : "One operating equation"}</p><h2 id="metrics-title">{language === "pt" ? "Receita é consequência de oito conversões observáveis." : "Revenue is the consequence of eight observable conversions."}</h2></div>
           <p>{language === "pt" ? "As taxas ainda não são resultados. O piloto cria a primeira linha de base confiável." : "The rates are not results yet. The pilot creates the first reliable baseline."}</p>
         </div>
         <div className="wf-metric-chain">
@@ -583,7 +615,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-roadmap" aria-labelledby="roadmap-title">
-        <div className="wf-section-label">09 · {language === "pt" ? "Plano de implementação" : "Implementation plan"}</div>
+        <div className="wf-section-label">11 · {language === "pt" ? "Plano de implementação" : "Implementation plan"}</div>
         <div className="wf-section-heading">
           <div><p className="wf-eyebrow">{language === "pt" ? "Seis gates reversíveis" : "Six reversible gates"}</p><h2 id="roadmap-title">{language === "pt" ? "Construir do controle para a automação." : "Build from control toward automation."}</h2></div>
           <p>{language === "pt" ? "A fase seguinte só abre quando o critério de saída anterior estiver comprovado." : "The next phase opens only after the previous exit criterion is proven."}</p>
@@ -594,7 +626,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-risks" aria-labelledby="risk-title">
-        <div className="wf-section-label">10 · {language === "pt" ? "Controles" : "Controls"}</div>
+        <div className="wf-section-label">12 · {language === "pt" ? "Controles" : "Controls"}</div>
         <div className="wf-section-heading">
           <div><p className="wf-eyebrow">{language === "pt" ? "O que precisa existir antes do piloto" : "What must exist before the pilot"}</p><h2 id="risk-title">{language === "pt" ? "Automação sem visibilidade não entra em produção." : "Automation without visibility does not enter production."}</h2></div>
         </div>
@@ -609,7 +641,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-approval" id="approval" aria-labelledby="approval-title">
-        <div className="wf-section-label">11 · {language === "pt" ? "Decisão do Founder" : "Founder decision"}</div>
+        <div className="wf-section-label">13 · {language === "pt" ? "Decisão dos sócios" : "Partner decision"}</div>
         <div className="wf-approval-grid">
           <div>
             <p className="wf-eyebrow">{language === "pt" ? "Antes de escrever uma linha de integração" : "Before writing one integration line"}</p>
@@ -626,7 +658,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <section className="wf-section wf-proof-boundary">
-        <div className="wf-section-label">12 · {language === "pt" ? "Fronteira da demonstração" : "Demo boundary"}</div>
+        <div className="wf-section-label">14 · {language === "pt" ? "Fronteira da demonstração" : "Demo boundary"}</div>
         <div className="wf-boundary-grid">
           <div><span>PROVES</span><h3>{language === "pt" ? "O que este protótipo prova" : "What this prototype proves"}</h3><ul><li>{language === "pt" ? "Fluxo compreensível de ponta a ponta" : "Comprehensible end-to-end flow"}</li><li>{language === "pt" ? "Responsabilidade de IA e humano separada" : "Separated AI and human responsibility"}</li><li>{language === "pt" ? "Arquitetura e gates implementáveis" : "Implementable architecture and gates"}</li><li>{language === "pt" ? "Métricas definidas antes do piloto" : "Metrics defined before the pilot"}</li></ul></div>
           <div><span>DOES NOT PROVE</span><h3>{language === "pt" ? "O que ainda precisa de evidência" : "What still needs evidence"}</h3><ul><li>{language === "pt" ? "Conversão, receita ou ROI" : "Conversion, revenue or ROI"}</li><li>{language === "pt" ? "Aprovação da Meta ou contas conectadas" : "Meta approval or connected accounts"}</li><li>{language === "pt" ? "Segurança de produção e conformidade jurídica" : "Production security and legal compliance"}</li><li>{language === "pt" ? "Capacidade de operar em escala" : "Ability to operate at scale"}</li></ul></div>
@@ -643,7 +675,7 @@ export default function WhatsAppFunnelBlueprint() {
           <a href="https://developer.calendly.com/getting-started" target="_blank" rel="noreferrer">Calendly API ↗</a>
           <a href="https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes" target="_blank" rel="noreferrer">ANPD ↗</a>
         </div>
-        <small>Concept v1.0 · 01 Aug 2026 · {language === "pt" ? "Não é um sistema em produção" : "Not a production system"}</small>
+        <small>Concept v2.0 · 01 Aug 2026 · {language === "pt" ? "Não é um sistema em produção" : "Not a production system"}</small>
       </footer>
     </main>
   );
