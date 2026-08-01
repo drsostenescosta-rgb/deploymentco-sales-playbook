@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -35,6 +35,21 @@ test("server-renders the Deployment.co sales presentation", async () => {
   assert.match(html, /12 • Sales volume engine/);
   assert.match(html, /13 • Target economics/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
+});
+
+test("server-renders the interactive WhatsApp funnel approval blueprint", async () => {
+  const response = await render("/whatsapp-funnel");
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+
+  const html = await response.text();
+  assert.match(html, /WhatsApp Revenue System/);
+  assert.match(html, /Do primeiro clique à receita/);
+  assert.match(html, /Nenhuma mensagem enviada/);
+  assert.match(html, /Sostenes assume o fechamento/);
+  assert.match(html, /Dados 100% sintéticos/);
+  assert.match(html, /Seis definições precisam ser fechadas/);
+  assert.doesNotMatch(html, /conversão garantida|ROI garantido/i);
 });
 
 test("keeps the published source explicit and free of starter content", async () => {
