@@ -158,23 +158,23 @@ const stages: Stage[] = [
 
 const messages = {
   ai: [
-    { side: "lead", text: "Olá! Vim baixar a Skill do CEO." },
-    { side: "agent", text: "Perfeito — sou o assistente automatizado da Deployment.co. Aqui estão a Skill do CEO e o guia de instalação. Se quiser, posso ajudar com qualquer etapa." },
-    { side: "lead", text: "Recebi. Nosso maior problema é o onboarding, hoje muito manual." },
-    { side: "agent", text: "Pelo perfil informado, o Deployment LAB pode fazer sentido para você: 4 horas online implementando IA na prática, com certificado de participação. Custa US$99 e tem capacidade limitada. Posso enviar o link?" },
+    { side: "lead", text: { pt: "Olá! Vim baixar a Skill do CEO.", en: "Hi! I came to download the CEO Skill." } },
+    { side: "agent", text: { pt: "Perfeito — sou o assistente automatizado da Deployment.co. Aqui estão a Skill do CEO e o guia de instalação. Se quiser, posso ajudar com qualquer etapa.", en: "Perfect — I am Deployment.co’s automated assistant. Here are the CEO Skill and installation guide. I can help with any step." } },
+    { side: "lead", text: { pt: "Recebi. Nosso maior problema é o onboarding, hoje muito manual.", en: "Got it. Our biggest problem is onboarding, which is still very manual." } },
+    { side: "agent", text: { pt: "Pelo perfil informado, o Deployment LAB pode fazer sentido para você: 4 horas online implementando IA na prática, com certificado de participação. Custa US$99 e tem capacidade limitada. Posso enviar o link?", en: "Based on your profile, the Deployment LAB may be a fit: four online hours implementing AI in practice, with a participation certificate. It costs US$99 and capacity is limited. May I send the link?" } },
   ],
   human: [
-    { side: "lead", text: "Antes de avançar, preciso entender como vocês tratam dados financeiros." },
-    { side: "agent", text: "Identifiquei uma dúvida sensível. Pausei a automação e encaminhei o contexto para o time." },
-    { side: "human", text: "Olá, aqui é o Head de Vendas. Antes de falar em integração, vamos delimitar dados, acessos e um piloto seguro." },
+    { side: "lead", text: { pt: "Antes de avançar, preciso entender como vocês tratam dados financeiros.", en: "Before moving forward, I need to understand how you handle financial data." } },
+    { side: "agent", text: { pt: "Identifiquei uma dúvida sensível. Pausei a automação e encaminhei o contexto para o time.", en: "I identified a sensitive question. I paused automation and transferred the context to the team." } },
+    { side: "human", text: { pt: "Olá, aqui é o Head de Vendas. Antes de falar em integração, vamos delimitar dados, acessos e um piloto seguro.", en: "Hi, this is the Head of Sales. Before discussing integration, let us define data, access and a safe pilot." } },
   ],
 };
 
 const syntheticLeads = [
-  { company: "Aurum Logística", source: "CEO Skill", score: 86, state: "Humano", next: "Revisar fit", owner: "Head de Vendas" },
-  { company: "Norte Retail", source: "CEO Skill", score: 74, state: "IA", next: "Enviar link do Lab", owner: "Agent" },
-  { company: "Vale Serviços", source: "CEO Skill", score: 92, state: "Booked", next: "Conversa de fit", owner: "Co-founder" },
-  { company: "Lumen Foods", source: "CEO Skill", score: 48, state: "Nurture", next: "Participar do Lab", owner: "Agent" },
+  { company: "Aurum Logistics", source: "CEO Skill", score: 86, state: { pt: "Humano", en: "Human" }, next: { pt: "Revisar fit", en: "Review fit" }, owner: { pt: "Head de Vendas", en: "Head of Sales" } },
+  { company: "Norte Retail", source: "CEO Skill", score: 74, state: { pt: "IA", en: "AI" }, next: { pt: "Enviar link do Lab", en: "Send Lab link" }, owner: { pt: "Agente", en: "Agent" } },
+  { company: "Vale Services", source: "CEO Skill", score: 92, state: { pt: "Agendado", en: "Booked" }, next: { pt: "Conversa de fit", en: "Fit conversation" }, owner: { pt: "Co-founder", en: "Co-founder" } },
+  { company: "Lumen Foods", source: "CEO Skill", score: 48, state: { pt: "Nutrição", en: "Nurture" }, next: { pt: "Participar do Lab", en: "Attend the Lab" }, owner: { pt: "Agente", en: "Agent" } },
 ];
 
 const phases = [
@@ -263,7 +263,7 @@ export default function WhatsAppFunnelBlueprint() {
           Deployment<span>.co</span>
         </Link>
         <div className="wf-top-actions">
-          <span className="wf-prototype-chip">{language === "pt" ? "Protótipo de aprovação" : "Approval prototype"}</span>
+          <span className="wf-prototype-chip">{language === "pt" ? "Revisão final · PT/EN" : "Final review · PT/EN"}</span>
           <div className="wf-language" aria-label="Language selector">
             <button className={language === "pt" ? "active" : ""} onClick={() => setLanguage("pt")}>PT</button>
             <button className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button>
@@ -287,14 +287,14 @@ export default function WhatsAppFunnelBlueprint() {
               <a className="wf-secondary" href="#approval">{language === "pt" ? "Ver decisões" : "See decisions"}</a>
             </div>
           </div>
-          <div className="wf-hero-visual">
+          <div className="wf-hero-visual story">
             {/* The static asset is intentionally unoptimized because this app runs on vinext/Workers. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/deployment-implementation-lab-ticket.png"
-              alt={language === "pt" ? "Ingresso promocional do Deployment LAB" : "Promotional pass for the Deployment LAB"}
-              width={1536}
-              height={1024}
+              src="/deployment-lab-instagram-story.png"
+              alt={language === "pt" ? "Story promocional do Deployment LAB" : "Promotional Instagram Story for the Deployment LAB"}
+              width={944}
+              height={1672}
             />
           </div>
         </div>
@@ -429,8 +429,8 @@ export default function WhatsAppFunnelBlueprint() {
             <div className="wf-field-grid">
               <label className="full"><span>{language === "pt" ? "O que você quer aprender ou implementar?" : "What do you want to learn or implement?"}</span><i>{language === "pt" ? "Objetivo para o Lab" : "Goal for the Lab"}</i></label>
               <label className="full"><span>{language === "pt" ? "Qual é sua maior dificuldade atual?" : "What is your biggest current challenge?"}</span><i>{language === "pt" ? "Resposta curta" : "Short answer"}</i></label>
-              <label><span>{language === "pt" ? "Seu perfil" : "Your role"}</span><i>Founder · Executive · Employee</i></label>
-              <label><span>{language === "pt" ? "Participa da decisão?" : "Decision role?"}</span><i>Yes · With others · No</i></label>
+              <label><span>{language === "pt" ? "Seu perfil" : "Your role"}</span><i>{language === "pt" ? "Sócio · Executivo · Colaborador" : "Founder · Executive · Employee"}</i></label>
+              <label><span>{language === "pt" ? "Participa da decisão?" : "Decision role?"}</span><i>{language === "pt" ? "Sim · Com outras pessoas · Não" : "Yes · With others · No"}</i></label>
               <label><span>{language === "pt" ? "Porte (opcional)" : "Size (optional)"}</span><i>1–10 · 11–50 · 51–200 · 201+</i></label>
               <label><span>{language === "pt" ? "Faturamento (opcional)" : "Revenue (optional)"}</span><i>{language === "pt" ? "Faixa anual" : "Annual band"}</i></label>
             </div>
@@ -439,17 +439,17 @@ export default function WhatsAppFunnelBlueprint() {
           </article>
         </div>
 
-        <div className="wf-ticket-panel">
+        <div className="wf-ticket-panel wf-story-panel">
           <div className="wf-ticket-copy">
-            <p className="wf-eyebrow">Payment confirmed → event pass</p>
-            <h3>{language === "pt" ? "Um ingresso que já parece parte da experiência." : "A pass that already feels like part of the experience."}</h3>
-            <p>{language === "pt" ? "Após o Stripe confirmar o US$99 no servidor, o sistema gera o ingresso pessoal e envia as instruções. A arte ao lado é a versão promocional para divulgação — não comprova compra e não contém QR válido." : "After Stripe confirms the US$99 server-side, the system generates the personal pass and sends instructions. The artwork shown is the promotional version — it is not proof of purchase and does not contain a valid QR."}</p>
-            <div className="wf-ticket-facts"><span>15 AUG 2026</span><span>09:00–13:00 PDT</span><span>13:00–17:00 BRT</span><span>4 HOURS</span><span>CERTIFICATE INCLUDED</span><span>LIMITED CAPACITY</span><span>US$99</span></div>
-            <a href="/deployment-implementation-lab-ticket.png" download>{language === "pt" ? "Baixar arte do ingresso ↧" : "Download ticket artwork ↧"}</a>
+            <p className="wf-eyebrow">Instagram Story · 9:16</p>
+            <h3>{language === "pt" ? "A peça pública vende a experiência — sem exibir o preço." : "The public creative sells the experience — without displaying the price."}</h3>
+            <p>{language === "pt" ? "O Story apresenta o Deployment LAB como uma imersão online de quatro horas para implementar IA na prática, com certificado de participação e capacidade limitada. O valor continua na página de inscrição e no checkout." : "The Story presents the Deployment LAB as a four-hour online immersion to implement AI in practice, with a participation certificate and limited capacity. Pricing remains on the registration page and checkout."}</p>
+            <div className="wf-ticket-facts"><span>15 AUG 2026</span><span>09:00–13:00 PDT</span><span>13:00–17:00 BRT</span><span>4 HOURS</span><span>CERTIFICATE INCLUDED</span><span>LIMITED CAPACITY</span></div>
+            <a href="/deployment-lab-instagram-story.png" download>{language === "pt" ? "Baixar Story para Instagram ↧" : "Download Instagram Story ↧"}</a>
           </div>
-          <div className="wf-ticket-image">
+          <div className="wf-ticket-image wf-story-image">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/deployment-implementation-lab-ticket.png" alt={language === "pt" ? "Ingresso promocional vintage do Deployment LAB com a Golden Gate Bridge" : "Vintage promotional pass for the Deployment LAB with the Golden Gate Bridge"} width={1536} height={1024} />
+            <img src="/deployment-lab-instagram-story.png" alt={language === "pt" ? "Story vintage do Deployment LAB com a Golden Gate Bridge" : "Vintage Deployment LAB Story with the Golden Gate Bridge"} width={944} height={1672} />
           </div>
         </div>
       </section>
@@ -475,7 +475,7 @@ export default function WhatsAppFunnelBlueprint() {
             </div>
             <div className="wf-chat">
               {messages[conversationMode].map((message, index) => (
-                <div key={`${conversationMode}-${index}`} className={`wf-bubble ${message.side}`}>{message.text}</div>
+                <div key={`${conversationMode}-${index}`} className={`wf-bubble ${message.side}`}>{t(message.text)}</div>
               ))}
             </div>
             <div className="wf-disabled-composer"><span>{language === "pt" ? "Simulação — envio desativado" : "Simulation — sending disabled"}</span><button disabled>➤</button></div>
@@ -582,7 +582,7 @@ export default function WhatsAppFunnelBlueprint() {
           <div className="wf-table-wrap">
             <table>
               <thead><tr><th>{language === "pt" ? "Conta" : "Account"}</th><th>{language === "pt" ? "Origem" : "Source"}</th><th>Score</th><th>{language === "pt" ? "Controle" : "Control"}</th><th>{language === "pt" ? "Próximo passo" : "Next step"}</th><th>Owner</th></tr></thead>
-              <tbody>{syntheticLeads.map((lead) => <tr key={lead.company}><td><strong>{lead.company}</strong><small>{language === "pt" ? "empresa fictícia" : "fictional company"}</small></td><td>{lead.source}</td><td><span className={`wf-score score-${lead.score >= 80 ? "high" : lead.score >= 60 ? "mid" : "low"}`}>{lead.score}</span></td><td><span className={`wf-status ${lead.state.toLowerCase()}`}>{lead.state}</span></td><td>{lead.next}</td><td>{lead.owner}</td></tr>)}</tbody>
+              <tbody>{syntheticLeads.map((lead) => <tr key={lead.company}><td><strong>{lead.company}</strong><small>{language === "pt" ? "empresa fictícia" : "fictional company"}</small></td><td>{lead.source}</td><td><span className={`wf-score score-${lead.score >= 80 ? "high" : lead.score >= 60 ? "mid" : "low"}`}>{lead.score}</span></td><td><span className="wf-status">{t(lead.state)}</span></td><td>{t(lead.next)}</td><td>{t(lead.owner)}</td></tr>)}</tbody>
             </table>
           </div>
         </div>
@@ -644,7 +644,7 @@ export default function WhatsAppFunnelBlueprint() {
         <div className="wf-section-label">13 · {language === "pt" ? "Decisão dos sócios" : "Partner decision"}</div>
         <div className="wf-approval-grid">
           <div>
-            <p className="wf-eyebrow">{language === "pt" ? "Antes de escrever uma linha de integração" : "Before writing one integration line"}</p>
+            <p className="wf-eyebrow">Iago + Hanz · {language === "pt" ? "pacote de revisão" : "review pack"}</p>
             <h2 id="approval-title">{language === "pt" ? "Seis definições precisam ser fechadas." : "Six definitions must be closed."}</h2>
             <p>{language === "pt" ? "Marque para simular a revisão. Esta página não grava a decisão nem inicia implementação." : "Check to simulate the review. This page does not save the decision or start implementation."}</p>
             <div className="wf-progress"><div><i style={{ width: `${(approved.length / approvalItems.length) * 100}%` }} /></div><strong>{approved.length}/{approvalItems.length}</strong></div>
@@ -666,7 +666,7 @@ export default function WhatsAppFunnelBlueprint() {
       </section>
 
       <footer className="wf-footer">
-        <div><Link className="wf-brand" href="/">Deployment<span>.co</span></Link><p>{language === "pt" ? "WhatsApp Revenue System · Blueprint de aprovação" : "WhatsApp Revenue System · Approval blueprint"}</p></div>
+        <div><Link className="wf-brand" href="/">Deployment<span>.co</span></Link><p>{language === "pt" ? "Deployment LAB Revenue Journey · Revisão PT/EN" : "Deployment LAB Revenue Journey · PT/EN review"}</p></div>
         <div className="wf-sources">
           <span>{language === "pt" ? "Referências técnicas oficiais" : "Official technical references"}</span>
           <a href="https://www.postman.com/meta/whatsapp-business-platform/documentation/wlk6lh4/whatsapp-cloud-api" target="_blank" rel="noreferrer">Meta WhatsApp Cloud API ↗</a>

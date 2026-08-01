@@ -48,7 +48,10 @@ test("server-renders the interactive WhatsApp funnel approval blueprint", async 
   assert.match(html, /Nenhuma mensagem enviada/);
   assert.match(html, /Head de Vendas ou co-founder/);
   assert.match(html, /Ir para o checkout de US\$99/);
-  assert.match(html, /deployment-implementation-lab-ticket\.png/);
+  assert.match(html, /deployment-lab-instagram-story\.png/);
+  assert.match(html, /Baixar Story para Instagram/);
+  assert.match(html, /Iago \+ Hanz/);
+  assert.match(html, /pacote de revisão/);
   assert.match(html, /09:00–13:00 PDT/);
   assert.match(html, /13:00–17:00 BRT/);
   assert.match(html, /4 horas implementando IA na prática, com certificado de participação/i);

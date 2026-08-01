@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Deployment.co — CEO Skill to Deployment LAB",
     description:
       "Da Skill do CEO ao cliente certo: o blueprint visual do funil para aprovação.",
-    images: ["/deployment-implementation-lab-ticket.png"],
+    images: ["/deployment-lab-instagram-story.png"],
   },
 };
 
